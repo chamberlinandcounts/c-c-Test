@@ -1,0 +1,42 @@
+{
+	admin off
+	auto_https off
+	servers {
+		# cloudflared/docker proxy hop; lets X-Forwarded-For carry the real client
+		trusted_proxies static private_ranges
+	}
+}
+
+:80 {
+	encode zstd gzip
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		X-Frame-Options SAMEORIGIN
+		Permissions-Policy "geolocation=(self), camera=(self)"
+		-Server
+	}
+
+	handle /healthz {
+		respond "ok" 200
+	}
+
+	handle /api/* {
+		request_body {
+			max_size 40MB
+		}
+		reverse_proxy api:3000
+	}
+
+	handle_path /tiles/* {
+		reverse_proxy tiles:3000
+	}
+
+	handle {
+		root * /srv
+		@static path /vendor/* /icons/* /favicon.svg
+		header @static Cache-Control "public, max-age=604800"
+		try_files {path} {path}.html {path}/index.html
+		file_server
+	}
+}

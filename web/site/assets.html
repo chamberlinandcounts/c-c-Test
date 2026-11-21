@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canyon Oaks Asset Dashboard · Chamberlin &amp; Counts</title>
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="/vendor/maplibre-gl.css">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<header class="topbar"></header>
+<main class="dash assets">
+  <div class="card ind" style="grid-area:i1"><div class="lbl">Total Signs</div><div class="val" id="v-signs">–</div></div>
+  <div class="card ind" style="grid-area:i2"><div class="lbl">Fire Hydrants</div><div class="val" id="v-hyd">–</div></div>
+  <div class="card ind" style="grid-area:i3"><div class="lbl">Irrigation Control Stations</div><div class="val" id="v-irr">–</div></div>
+  <div class="card ind" style="grid-area:i4"><div class="lbl">HMA Overlay Area (sq ft)</div><div class="val" id="v-hma">–</div><div class="note">Geodesic area of overlay polygons</div></div>
+  <div class="card ind" style="grid-area:i5"><div class="lbl">Full Repair Area (sq ft)</div><div class="val" id="v-full">–</div><div class="note">Geodesic area of full-depth repair polygons</div></div>
+  <section class="card widget mapw" style="grid-area:map"><div class="map" id="map"></div></section>
+  <section class="card widget" style="grid-area:bar"><h3>Signs by MUTCD code</h3><div class="body" id="bar"></div></section>
+  <section class="card widget" style="grid-area:pie"><h3>Irrigation by type</h3><div class="body" id="pie"></div></section>
+  <section class="card widget" style="grid-area:list"><h3>Signs <span class="muted" id="list-count"></span></h3><div class="body list" id="list"></div></section>
+</main>
+<script src="/vendor/maplibre-gl.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/charts.js"></script>
+<script src="/js/mapcore.js"></script>
+<script>
+(async () => {
+  const s = await CC.api("/api/stats");
+  document.getElementById("v-signs").textContent = CC.fmtNum(s.signs);
+  document.getElementById("v-hyd").textContent = CC.fmtNum(s.fire_hydrants);
+  document.getElementById("v-irr").textContent = CC.fmtNum(s.irrigation);
+  document.getElementById("v-hma").textContent = CC.fmtNum(s.hma_overlay_sqft, 0);
+  document.getElementById("v-full").textContent = CC.fmtNum(s.full_repair_sqft, 0);
+  CCCharts.bar(document.getElementById("bar"), s.signs_by_code.map((d) => ({ label: d.code, value: d.count })));
+  // Group values that differ only by stray spaces (e.g. "Water Valve " vs "Water Valve").
+  const irr = {};
+  s.irrigation_by_description.forEach((d) => { const k = d.description.trim() || "(blank)"; irr[k] = (irr[k] || 0) + d.count; });
+  CCCharts.pie(document.getElementById("pie"), Object.entries(irr).sort((a, b) => b[1] - a[1]).map(([label, value]) => ({ label, value })));
+
+  const m = await CCMap.create("map", { cooperative: false });
+  const signsL = m.layers.find((l) => l.id === "signs");
+  const list = document.getElementById("list");
+  document.getElementById("list-count").textContent = `(${s.sign_list.length})`;
+  list.innerHTML = s.sign_list.map((r, i) => `<div class="item" data-i="${i}"><p>${CC.esc(r.code || "")}&nbsp; (Sign ${CC.esc(r.assetid || "")})</p></div>`).join("");
+  list.querySelectorAll(".item").forEach((el) => (el.onclick = () => {
+    const r = s.sign_list[el.dataset.i];
+    list.querySelectorAll(".sel").forEach((x) => x.classList.remove("sel"));
+    el.classList.add("sel");
+    m.map.flyTo({ center: [r.lon, r.lat], zoom: 19.5 });
+    m.map.once("moveend", () => m.popups.openFeature(signsL, r.fid, [r.lon, r.lat]));
+  }));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,2347 @@
+{
+ "generated_from": "ArcGIS Online web map 22e14482c812412daae128402aa1f234",
+ "layers": [
+  {
+   "id": "ortho",
+   "title": "Canyon Oaks Ortho 2024",
+   "type": "raster",
+   "group": null
+  },
+  {
+   "id": "hydrant_coverage_300ft",
+   "table": "hydrant_coverage_300ft",
+   "title": "Hydrant coverage 300 ft (practice)",
+   "group": null,
+   "geometry": "polygon",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "fill",
+     "color": "rgba(255,127,102,0.302)",
+     "outline": "rgba(215,25,28,1.0)",
+     "outlineWidth": 1.0
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "Hydrant_coverage_300ft_practice",
+    "fields": [
+     {
+      "name": "analysisarea",
+      "label": "Area in Square Miles",
+      "date": false
+     },
+     {
+      "name": "buff_dist",
+      "label": "Buffer distance in Feet",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": false
+  },
+  {
+   "id": "storm_drain_lines",
+   "table": "storm_drain_lines",
+   "title": "Storm Drain Lines",
+   "group": "Drainage (practice)",
+   "geometry": "line",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "line",
+     "color": "rgba(165,83,183,1.0)",
+     "width": 1.33,
+     "dash": null
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "Storm Drain Lines: {name}",
+    "fields": [
+     {
+      "name": "name",
+      "label": "Name",
+      "date": false
+     },
+     {
+      "name": "layer",
+      "label": "Layer",
+      "date": false
+     },
+     {
+      "name": "length",
+      "label": "Length",
+      "date": false
+     },
+     {
+      "name": "line_id",
+      "label": "Line_ID",
+      "date": false
+     },
+     {
+      "name": "shape__length",
+      "label": "SHAPE__Length",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": false
+  },
+  {
+   "id": "storm_manholes",
+   "table": "storm_manholes",
+   "title": "Stormdrain Manhole",
+   "group": "Drainage (practice)",
+   "geometry": "point",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "icon",
+     "icon": "f92c262a389a.png",
+     "width": 20.0,
+     "height": 20.0
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "Stormdrain Manhole",
+    "fields": [
+     {
+      "name": "descriptio",
+      "label": "Descriptio",
+      "date": false
+     },
+     {
+      "name": "h_prec_obs",
+      "label": "H_Prec_Obs",
+      "date": false
+     },
+     {
+      "name": "photo",
+      "label": "Photo",
+      "date": false
+     },
+     {
+      "name": "pointid",
+      "label": "PointID",
+      "date": false
+     },
+     {
+      "name": "v_prec_obs",
+      "label": "V_Prec_Obs",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": false
+  },
+  {
+   "id": "drain_inlets",
+   "table": "drain_inlets",
+   "title": "Drain Inlet",
+   "group": "Drainage (practice)",
+   "geometry": "point",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "icon",
+     "icon": "042c988b7bee.png",
+     "width": 20.0,
+     "height": 20.0
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "Drain Inlet",
+    "fields": [
+     {
+      "name": "descriptio",
+      "label": "Descriptio",
+      "date": false
+     },
+     {
+      "name": "h_prec_obs",
+      "label": "H_Prec_Obs",
+      "date": false
+     },
+     {
+      "name": "photo",
+      "label": "Photo",
+      "date": false
+     },
+     {
+      "name": "pointid",
+      "label": "PointID",
+      "date": false
+     },
+     {
+      "name": "size",
+      "label": "Size",
+      "date": false
+     },
+     {
+      "name": "v_prec_obs",
+      "label": "V_Prec_Obs",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": false
+  },
+  {
+   "id": "sewer_lines",
+   "table": "sewer_lines",
+   "title": "Lines",
+   "group": "Sewer (practice)",
+   "geometry": "line",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "line",
+     "color": "rgba(165,83,183,1.0)",
+     "width": 1.33,
+     "dash": null
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "Lines: {name}",
+    "fields": [
+     {
+      "name": "name",
+      "label": "Name",
+      "date": false
+     },
+     {
+      "name": "layer",
+      "label": "Layer",
+      "date": false
+     },
+     {
+      "name": "length",
+      "label": "Length",
+      "date": false
+     },
+     {
+      "name": "line_id",
+      "label": "Line_ID",
+      "date": false
+     },
+     {
+      "name": "shape__length",
+      "label": "SHAPE__Length",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": false
+  },
+  {
+   "id": "sewer_manholes",
+   "table": "sewer_manholes",
+   "title": "Manhole",
+   "group": "Sewer (practice)",
+   "geometry": "point",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "icon",
+     "icon": "042c988b7bee.png",
+     "width": 20.0,
+     "height": 20.0
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "Manhole",
+    "fields": [
+     {
+      "name": "descriptio",
+      "label": "Descriptio",
+      "date": false
+     },
+     {
+      "name": "h_prec_obs",
+      "label": "H_Prec_Obs",
+      "date": false
+     },
+     {
+      "name": "photo",
+      "label": "Photo",
+      "date": false
+     },
+     {
+      "name": "pointid",
+      "label": "PointID",
+      "date": false
+     },
+     {
+      "name": "v_prec_obs",
+      "label": "V_Prec_Obs",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": false
+  },
+  {
+   "id": "parcels",
+   "table": "parcels",
+   "title": "Parcels (practice)",
+   "group": null,
+   "geometry": "polygon",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "fill",
+     "color": "rgba(76,129,205,0.0)",
+     "outline": "rgba(255,245,160,1.0)",
+     "outlineWidth": 1.0
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "Parcel {addrlong}",
+    "fields": [
+     {
+      "name": "addrlong",
+      "label": "AddrLong",
+      "date": false
+     },
+     {
+      "name": "alt_id",
+      "label": "ALT_ID",
+      "date": false
+     },
+     {
+      "name": "apn",
+      "label": "APN",
+      "date": false
+     },
+     {
+      "name": "city",
+      "label": "CITY",
+      "date": false
+     },
+     {
+      "name": "comment",
+      "label": "COMMENT",
+      "date": false
+     },
+     {
+      "name": "house_num",
+      "label": "HOUSE_NUM",
+      "date": false
+     },
+     {
+      "name": "jurisdicti",
+      "label": "JURISDICTI",
+      "date": false
+     },
+     {
+      "name": "label",
+      "label": "LABEL",
+      "date": false
+     },
+     {
+      "name": "p_alt_id",
+      "label": "P_ALT_ID",
+      "date": false
+     },
+     {
+      "name": "pre_dir",
+      "label": "PRE_DIR",
+      "date": false
+     },
+     {
+      "name": "shape__area",
+      "label": "Shape__Area",
+      "date": false
+     },
+     {
+      "name": "state",
+      "label": "STATE",
+      "date": false
+     },
+     {
+      "name": "street_nam",
+      "label": "STREET_NAM",
+      "date": false
+     },
+     {
+      "name": "street_typ",
+      "label": "STREET_TYP",
+      "date": false
+     },
+     {
+      "name": "suf_dir",
+      "label": "SUF_DIR",
+      "date": false
+     },
+     {
+      "name": "unit",
+      "label": "UNIT",
+      "date": false
+     },
+     {
+      "name": "zip",
+      "label": "ZIP",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": false
+  },
+  {
+   "id": "hma_overlay_repairs",
+   "table": "hma_overlay_repairs",
+   "title": "HMA OVERLAY (practice)",
+   "group": null,
+   "geometry": "polygon",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "fill",
+     "color": "rgba(76,129,205,0.0)",
+     "outline": "rgba(255,128,0,1.0)",
+     "outlineWidth": 2.0
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "HMA OVERLAY (practice)",
+    "fields": [
+     {
+      "name": "sqft",
+      "label": "AREA FT2",
+      "date": false
+     },
+     {
+      "name": "hmavolume",
+      "label": "FT3",
+      "date": false
+     },
+     {
+      "name": "material",
+      "label": "MATERIAL",
+      "date": false
+     },
+     {
+      "name": "shape__area",
+      "label": "SHAPE__Area",
+      "date": false
+     },
+     {
+      "name": "shape__length",
+      "label": "SHAPE__Length",
+      "date": false
+     },
+     {
+      "name": "thickness",
+      "label": "THICKNESS",
+      "date": false
+     },
+     {
+      "name": "tons",
+      "label": "TONS",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": false
+  },
+  {
+   "id": "full_repair",
+   "table": "full_repair",
+   "title": "FULL REPAIR (practice)",
+   "group": null,
+   "geometry": "polygon",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "fill",
+     "color": "rgba(76,129,205,0.0)",
+     "outline": "rgba(230,0,126,1.0)",
+     "outlineWidth": 2.0
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "FULL REPAIR (practice)",
+    "fields": [
+     {
+      "name": "areasqft",
+      "label": "AREASQFT",
+      "date": false
+     },
+     {
+      "name": "tons",
+      "label": "HMATONS",
+      "date": false
+     },
+     {
+      "name": "shape__area",
+      "label": "SHAPE__Area",
+      "date": false
+     },
+     {
+      "name": "shape__length",
+      "label": "SHAPE__Length",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": false
+  },
+  {
+   "id": "irrigation",
+   "table": "irrigation",
+   "title": "Irrigation (practice)",
+   "group": null,
+   "geometry": "point",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "uniqueValue",
+    "field": "description",
+    "classes": [
+     {
+      "value": "Water Valve",
+      "label": "Water Valve",
+      "symbol": {
+       "kind": "marker",
+       "shape": "circle",
+       "color": "rgba(237,81,81,1.0)",
+       "size": 8.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     },
+     {
+      "value": "Timer Valve",
+      "label": "Timer Valve",
+      "symbol": {
+       "kind": "marker",
+       "shape": "square",
+       "color": "rgba(20,158,206,1.0)",
+       "size": 12.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     },
+     {
+      "value": "Backflow Preventor",
+      "label": "Backflow Preventor",
+      "symbol": {
+       "kind": "marker",
+       "shape": "diamond",
+       "color": "rgba(167,198,54,1.0)",
+       "size": 10.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     },
+     {
+      "value": "Timer",
+      "label": "Timer",
+      "symbol": {
+       "kind": "marker",
+       "shape": "square",
+       "color": "rgba(158,85,156,1.0)",
+       "size": 12.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     },
+     {
+      "value": "Cal Water Valve",
+      "label": "Cal Water Valve",
+      "symbol": {
+       "kind": "marker",
+       "shape": "triangle",
+       "color": "rgba(252,146,31,1.0)",
+       "size": 10.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     },
+     {
+      "value": "Cal Water Meter",
+      "label": "Cal Water Meter",
+      "symbol": {
+       "kind": "marker",
+       "shape": "triangle",
+       "color": "rgba(255,222,62,1.0)",
+       "size": 10.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     },
+     {
+      "value": "CUP",
+      "label": "CUP",
+      "symbol": {
+       "kind": "marker",
+       "shape": "circle",
+       "color": "rgba(247,137,216,1.0)",
+       "size": 8.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     },
+     {
+      "value": "Control Valve",
+      "label": "Control Valve",
+      "symbol": {
+       "kind": "marker",
+       "shape": "square",
+       "color": "rgba(183,129,74,1.0)",
+       "size": 12.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     },
+     {
+      "value": "Double Check Anti-syphon",
+      "label": "Double Check Anti-syphon",
+      "symbol": {
+       "kind": "marker",
+       "shape": "diamond",
+       "color": "rgba(60,175,153,1.0)",
+       "size": 10.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     },
+     {
+      "value": "Timer and Valve",
+      "label": "Timer and Valve",
+      "symbol": {
+       "kind": "marker",
+       "shape": "square",
+       "color": "rgba(107,107,214,1.0)",
+       "size": 12.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     }
+    ],
+    "default": {
+     "kind": "marker",
+     "shape": "circle",
+     "color": "rgba(170,170,170,1.0)",
+     "size": 8.0,
+     "outline": "rgba(153,153,153,0.251)",
+     "outlineWidth": 1.0
+    },
+    "defaultLabel": "Other"
+   },
+   "popup": {
+    "title": "Irrigation (practice): {point_name}",
+    "fields": [
+     {
+      "name": "description",
+      "label": "Description",
+      "date": false
+     },
+     {
+      "name": "elevation",
+      "label": "Elevation",
+      "date": false
+     },
+     {
+      "name": "latitude",
+      "label": "Latitude",
+      "date": false
+     },
+     {
+      "name": "location",
+      "label": "Location",
+      "date": false
+     },
+     {
+      "name": "longitude",
+      "label": "Longitude",
+      "date": false
+     },
+     {
+      "name": "point_name",
+      "label": "Point Name",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": true
+  },
+  {
+   "id": "signs",
+   "table": "signs",
+   "title": "Signs",
+   "group": null,
+   "geometry": "point",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "uniqueValue",
+    "field": "code",
+    "classes": [
+     {
+      "value": "R8-3a",
+      "label": "No Parking - (R8-3a)",
+      "symbol": {
+       "kind": "icon",
+       "icon": "02208716e75c.png",
+       "width": 20.0,
+       "height": 25.27
+      }
+     },
+     {
+      "value": "R2-1",
+      "label": "Speed Limit - (R2-1)",
+      "symbol": {
+       "kind": "icon",
+       "icon": "b6f9fce7ca26.png",
+       "width": 20.0,
+       "height": 25.27
+      }
+     },
+     {
+      "value": "D3-1",
+      "label": "Street Name (1 line) - (D3-1)",
+      "symbol": {
+       "kind": "icon",
+       "icon": "ba1ff2fcb8e3.png",
+       "width": 24.0,
+       "height": 9.0
+      }
+     },
+     {
+      "value": "R1-1",
+      "label": "Stop - (R1-1)",
+      "symbol": {
+       "kind": "icon",
+       "icon": "397106924e0b.png",
+       "width": 24.0,
+       "height": 24.0
+      }
+     },
+     {
+      "value": "Other",
+      "label": "All Other Signs",
+      "symbol": {
+       "kind": "icon",
+       "icon": "d640a6884216.png",
+       "width": 20.0,
+       "height": 25.27
+      }
+     },
+     {
+      "value": "W14-1",
+      "label": "Dead End - (W14-1)",
+      "symbol": {
+       "kind": "icon",
+       "icon": "85c497f09185.png",
+       "width": 20.0,
+       "height": 20.0
+      }
+     },
+     {
+      "value": "R8-3",
+      "label": "No Parking (symbol) - (R8-3)",
+      "symbol": {
+       "kind": "icon",
+       "icon": "d8231659bd0e.png",
+       "width": 20.0,
+       "height": 20.0
+      }
+     },
+     {
+      "value": "R2-6bP",
+      "label": "$XX Fine (plaque) - (R2-6bP)",
+      "symbol": {
+       "kind": "marker",
+       "shape": "circle",
+       "color": "rgba(183,129,74,1.0)",
+       "size": 8.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     },
+     {
+      "value": "D9-20aP",
+      "label": "24-Hour (plaque) - (D9-20aP)",
+      "symbol": {
+       "kind": "marker",
+       "shape": "circle",
+       "color": "rgba(60,175,153,1.0)",
+       "size": 8.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     },
+     {
+      "value": "W1-15",
+      "label": "270-degree Loop - (W1-15)",
+      "symbol": {
+       "kind": "marker",
+       "shape": "circle",
+       "color": "rgba(107,107,214,1.0)",
+       "size": 8.0,
+       "outline": "rgba(153,153,153,0.251)",
+       "outlineWidth": 1.0
+      }
+     }
+    ],
+    "default": null,
+    "defaultLabel": "Other"
+   },
+   "popup": {
+    "title": "Signs {type}",
+    "fields": [
+     {
+      "name": "esrignss_altitude",
+      "label": "Altitude",
+      "date": false
+     },
+     {
+      "name": "angle",
+      "label": "Angle",
+      "date": false
+     },
+     {
+      "name": "esrignss_avg_h_rms",
+      "label": "Average Horizontal Accuracy (m)",
+      "date": false
+     },
+     {
+      "name": "esrignss_avg_v_rms",
+      "label": "Average Vertical Accuracy (m)",
+      "date": false
+     },
+     {
+      "name": "esrignss_avg_positions",
+      "label": "Averaged Positions",
+      "date": false
+     },
+     {
+      "name": "collectedby",
+      "label": "Collected By",
+      "date": false
+     },
+     {
+      "name": "esrisnsr_azimuth",
+      "label": "Compass reading (\u00b0)",
+      "date": false
+     },
+     {
+      "name": "condition",
+      "label": "Condition",
+      "date": false
+     },
+     {
+      "name": "esrignss_correctionage",
+      "label": "Correction Age",
+      "date": false
+     },
+     {
+      "name": "curbregulations",
+      "label": "Curb Regulations",
+      "date": false
+     },
+     {
+      "name": "esrignss_direction",
+      "label": "Direction of travel (\u00b0)",
+      "date": false
+     },
+     {
+      "name": "district",
+      "label": "District",
+      "date": false
+     },
+     {
+      "name": "facingdirection",
+      "label": "Facing Direction",
+      "date": false
+     },
+     {
+      "name": "esrignss_fixdatetime",
+      "label": "Fix Time",
+      "date": false
+     },
+     {
+      "name": "esrignss_fixtype",
+      "label": "Fix Type",
+      "date": false
+     },
+     {
+      "name": "esrignss_hdop",
+      "label": "HDOP",
+      "date": false
+     },
+     {
+      "name": "signheight",
+      "label": "Height",
+      "date": false
+     },
+     {
+      "name": "esrignss_h_rms",
+      "label": "Horizontal Accuracy (m)",
+      "date": false
+     },
+     {
+      "name": "inspectdate",
+      "label": "Inspection Date",
+      "date": false
+     },
+     {
+      "name": "installdate",
+      "label": "Install Date",
+      "date": false
+     },
+     {
+      "name": "retired",
+      "label": "Is Retired",
+      "date": false
+     },
+     {
+      "name": "lateraloffset",
+      "label": "Lateral Offset",
+      "date": false
+     },
+     {
+      "name": "latoffsetunits",
+      "label": "Lateral Offset Units",
+      "date": false
+     },
+     {
+      "name": "esrignss_latitude",
+      "label": "Latitude",
+      "date": false
+     },
+     {
+      "name": "esrignss_longitude",
+      "label": "Longitude",
+      "date": false
+     },
+     {
+      "name": "maintainedby",
+      "label": "Maintained By",
+      "date": false
+     },
+     {
+      "name": "manufacturer",
+      "label": "Manufacturer",
+      "date": false
+     },
+     {
+      "name": "mountheight",
+      "label": "Mounting Height",
+      "date": false
+     },
+     {
+      "name": "mountunits",
+      "label": "Mounting Height Units",
+      "date": false
+     },
+     {
+      "name": "municipality",
+      "label": "Municipality",
+      "date": false
+     },
+     {
+      "name": "code",
+      "label": "MUTCD Code",
+      "date": false
+     },
+     {
+      "name": "locdesc",
+      "label": "Nearest Location",
+      "date": false
+     },
+     {
+      "name": "maintenance",
+      "label": "Needs Maintenance",
+      "date": false
+     },
+     {
+      "name": "replacement",
+      "label": "Needs Replacement",
+      "date": false
+     },
+     {
+      "name": "notes",
+      "label": "Notes",
+      "date": false
+     },
+     {
+      "name": "esrignss_numsats",
+      "label": "Number of Satellites",
+      "date": false
+     },
+     {
+      "name": "ownedby",
+      "label": "Owned By",
+      "date": false
+     },
+     {
+      "name": "esrignss_pdop",
+      "label": "PDOP",
+      "date": false
+     },
+     {
+      "name": "esrignss_positionsourcetype",
+      "label": "Position source type",
+      "date": false
+     },
+     {
+      "name": "esrignss_receiver",
+      "label": "Receiver Name",
+      "date": false
+     },
+     {
+      "name": "regdirection",
+      "label": "Regulation Direction",
+      "date": false
+     },
+     {
+      "name": "dimunits",
+      "label": "Sign Dimension Units",
+      "date": false
+     },
+     {
+      "name": "assetid",
+      "label": "Sign ID",
+      "date": false
+     },
+     {
+      "name": "color",
+      "label": "Sign Primary Color",
+      "date": false
+     },
+     {
+      "name": "reflectivity",
+      "label": "Sign Reflectivity",
+      "date": false
+     },
+     {
+      "name": "sheeting",
+      "label": "Sign Sheeting Type",
+      "date": false
+     },
+     {
+      "name": "substrate",
+      "label": "Sign Substrate",
+      "date": false
+     },
+     {
+      "name": "text",
+      "label": "Sign Text",
+      "date": false
+     },
+     {
+      "name": "type",
+      "label": "Sign Type",
+      "date": false
+     },
+     {
+      "name": "esrignss_speed",
+      "label": "Speed (km/h)",
+      "date": false
+     },
+     {
+      "name": "esrignss_h_stddev",
+      "label": "Standard Deviation (m)",
+      "date": false
+     },
+     {
+      "name": "esrignss_stationid",
+      "label": "Station ID",
+      "date": false
+     },
+     {
+      "name": "supplemental",
+      "label": "Supplemental Plaque",
+      "date": false
+     },
+     {
+      "name": "esrignss_vdop",
+      "label": "VDOP",
+      "date": false
+     },
+     {
+      "name": "esrignss_v_rms",
+      "label": "Vertical Accuracy (m)",
+      "date": false
+     },
+     {
+      "name": "warrantydate",
+      "label": "Warranty Date",
+      "date": false
+     },
+     {
+      "name": "signwidth",
+      "label": "Width",
+      "date": false
+     }
+    ]
+   },
+   "domains": {
+    "type": {
+     "Regulatory": "Regulatory",
+     "Warning": "Warning",
+     "Guide": "Guide",
+     "Other": "Other",
+     "Unknown": "Unknown"
+    },
+    "code": {
+     "R2-6bP": "$XX Fine (plaque) - (R2-6bP)",
+     "D9-20aP": "24-Hour (plaque) - (D9-20aP)",
+     "W1-15": "270-degree Loop - (W1-15)",
+     "D14-1": "Acknowledgement - (D14-1)",
+     "D14-2": "Acknowledgement - (D14-2)",
+     "D14-3": "Acknowledgement - (D14-3)",
+     "W4-3": "Added Lane - (W4-3)",
+     "R3-8": "Advance Intersection Lane Control - (R3-8)",
+     "R3-8a": "Advance Intersection Lane Control - (R3-8a)",
+     "R3-8b": "Advance Intersection Lane Control - (R3-8b)",
+     "R3-9g": "Advance Reversible Lane Control Transition Signing - (R3-9g)",
+     "R3-9h": "Advance Reversible Lane Control Transition Signing - (R3-9h)",
+     "D3-2": "Advance Street Name - (D3-2)",
+     "W16-8P": "Advance Street Name (1-line plaque) - (W16-8P)",
+     "W16-8aP": "Advance Street Name (2-line plaque) - (W16-8aP)",
+     "M5-1": "Advance Turn Arrow - (M5-1)",
+     "M5-2": "Advance Turn Arrow - (M5-2)",
+     "M5-3": "Advance Turn Arrow - (M5-3)",
+     "W3-1": "Advanced Traffic Control - (W3-1)",
+     "W3-2": "Advanced Traffic Control - (W3-2)",
+     "W3-3": "Advanced Traffic Control - (W3-3)",
+     "W13-2": "Advisory Exit or Ramp Speed - (W13-2)",
+     "W13-3": "Advisory Exit or Ramp Speed - (W13-3)",
+     "W13-1P": "Advisory Speed (plaque) - (W13-1P)",
+     "W16-9P": "Ahead (plaque) - (W16-9P)",
+     "I-5": "Airport - (I-5)",
+     "RS-095": "All-Terrain Trail - (RS-095)",
+     "Other": "All Other Signs",
+     "W19-5": "All Traffic Must Exit - (W19-5)",
+     "R3-23": "All Turns (U Turn) from Right Lane - (R3-23)",
+     "R3-23a": "All Turns (U Turn) from Right Lane - (R3-23a)",
+     "R3-24": "All Turns (U Turn) with arrow - (R3-24)",
+     "R3-24b": "All Turns (U Turn) with arrow - (R3-24b)",
+     "R3-25": "All Turns (U Turn) with arrow - (R3-25)",
+     "R3-25b": "All Turns (U Turn) with arrow - (R3-25b)",
+     "R3-26a": "All Turns (U Turn) with arrow - (R3-26a)",
+     "R1-3P": "All Way (plaque) - (R1-3P)",
+     "M4-1": "Alternate - (M4-1)",
+     "M4-1a": "Alternate - (M4-1a)",
+     "D9-11a": "Alternative Fuel - Compressed Natural Gas - (D9-11a)",
+     "D9-11c": "Alternative Fuel - Ethanol - (D9-11c)",
+     "D9-13bP": "Ambulance Station (plaque) - (D9-13bP)",
+     "RS-070": "Amphitheater - (RS-070)",
+     "RS-116": "Archery - (RS-116)",
+     "EM-2": "Area Closed - (EM-2)",
+     "R10-31P": "At Signal (plaque) - (R10-31P)",
+     "R5-11": "Authorized Vehicles Only - (R5-11)",
+     "RS-137": "Baby Changing Station (Men's Room) - (RS-137)",
+     "RS-138": "Baby Changing Station (Women's Room) - (RS-138)",
+     "RS-096": "Baseball - (RS-096)",
+     "W3-4": "Be Prepared to Stop - (W3-4)",
+     "RS-145": "Beach - (RS-145)",
+     "RS-012": "Bear Viewing Area - (RS-012)",
+     "M4-14": "Begin - (M4-14)",
+     "R3-9cP": "BEGIN - (R3-9cP)",
+     "R2-10": "Begin Higher Fines Zone - (R2-10)",
+     "R6-6": "BEGIN ONE WAY - (R6-6)",
+     "R3-20": "Begin Right (Left) Turn Lane - (R3-20)",
+     "R16-10": "Begin, End Daytime Headlight Section - (R16-10)",
+     "R16-11": "Begin, End Daytime Headlight Section - (R16-11)",
+     "W11-1": "Bicycle - (W11-1)",
+     "W11-15": "Bicycle / Pedestrian - (W11-15)",
+     "RS-147": "Boat Motor - (RS-147)",
+     "RS-054": "Boat Ramp - (RS-054)",
+     "D5-14": "Brake Check Area (with arrow) - (D5-14)",
+     "D5-13": "Brake Check Area XX Miles - (D5-13)",
+     "W8-13": "Bridge Ices Before Road - (W8-13)",
+     "W8-1": "Bump - (W8-1)",
+     "R3-5gP": "Bus Lane (plaque) - (R3-5gP)",
+     "I-6": "Bus Station - (I-6)",
+     "RS-031": "Bus Stop - (RS-031)",
+     "M4-3": "Business - (M4-3)",
+     "M4-2": "By-Pass - (M4-2)",
+     "RS-042": "Campfires - (RS-042)",
+     "D9-3": "Camping - (D9-3)",
+     "RS-079": "Canoeing - (RS-079)",
+     "RS-101": "Cans or Bottles - (RS-101)",
+     "M3-2": "Cardinal Direction - East - (M3-2)",
+     "M3-1": "Cardinal Direction - North - (M3-1)",
+     "M3-3": "Cardinal Direction - South - (M3-3)",
+     "M3-4": "Cardinal Direction - West - (M3-4)",
+     "D12-2": "Carpool Information - (D12-2)",
+     "R3-5eP": "Center Lane (plaque) - (R3-5eP)",
+     "D5-16": "Chain-Up Area (with arrow) - (D5-16)",
+     "D5-15": "Chain-Up Area XX Miles - (D5-15)",
+     "RS-105": "Chair Lift/Ski Lift - (RS-105)",
+     "D12-3": "Channel 9 Monitored - (D12-3)",
+     "W1-8": "Chevron Alignment - (W1-8)",
+     "D1-1e": "Circular Intersection Departure Guide - (D1-1e)",
+     "D1-1d": "Circular Intersection Destination (1 line) - (D1-1d)",
+     "D1-2d": "Circular Intersection Destination (2 lines) - (D1-2d)",
+     "D1-3d": "Circular Intersection Destination (3 lines) - (D1-3d)",
+     "R2-5aP": "Citywide (plaque) - (R2-5aP)",
+     "RS-082": "Climbing - (RS-082)",
+     "W13-6": "Combination Horizontal Alignment/Advisory Exit or Ramp Speed - (W13-6)",
+     "W13-7": "Combination Horizontal Alignment/Advisory Exit or Ramp Speed - (W13-7)",
+     "W1-1a": "Combination Horizontal Alignment/Advisory Speed - (W1-1a)",
+     "W1-2a": "Combination Horizontal Alignment/Advisory Speed - (W1-2a)",
+     "W1-10": "Combination Horizontal Alignment/Intersection - (W1-10)",
+     "W1-10a": "Combination Horizontal Alignment/Intersection - (W1-10a)",
+     "W1-10b": "Combination Horizontal Alignment/Intersection - (W1-10b)",
+     "W1-10c": "Combination Horizontal Alignment/Intersection - (W1-10c)",
+     "W1-10d": "Combination Horizontal Alignment/Intersection - (W1-10d)",
+     "W1-10e": "Combination Horizontal Alignment/Intersection - (W1-10e)",
+     "M2-2": "Combination Junction - (M2-2)",
+     "D15-1": "Combination Lane Use / Destination - (D15-1)",
+     "R2-4a": "Combined Speed Limit - (R2-4a)",
+     "R5-4": "Commercial Vehicles Excluded - (R5-4)",
+     "RS-149": "Corral - (RS-149)",
+     "M1-6": "County Route Sign - (M1-6)",
+     "RS-046": "Cross Country Skiing - (RS-046)",
+     "R9-2": "Cross Only at Crosswalks - (R9-2)",
+     "R10-1": "Cross Only On Green - (R10-1)",
+     "W4-4P": "Cross Traffic Does Not Stop (plaque) - (W4-4P)",
+     "D13-1": "Crossover - (D13-1)",
+     "D13-2": "Crossover - (D13-2)",
+     "R10-23": "Crosswalk, Stop on Red - (R10-23)",
+     "RS-142": "Cultural Interest Area - (RS-142)",
+     "RS-009": "Dam - (RS-009)",
+     "W14-1": "Dead End - (W14-1)",
+     "W14-1a": "Dead End (with arrow) - (W14-1a)",
+     "RS-011": "Deer Viewing Area - (RS-011)",
+     "D1-1": "Destination (1 line) - (D1-1)",
+     "D1-2": "Destination (2 lines) - (D1-2)",
+     "D1-3": "Destination (3 lines) - (D1-3)",
+     "D1-1a": "Destination and Distance (1 line) - (D1-1a)",
+     "D1-2a": "Destination and Distance (2 lines) - (D1-2a)",
+     "D1-3a": "Destination and Distance (3 lines) - (D1-3a)",
+     "D9-11": "Diesel Fuel - (D9-11)",
+     "W8-2": "Dip - (W8-2)",
+     "M6-1": "Directional Arrow - (M6-1)",
+     "M6-2": "Directional Arrow - (M6-2)",
+     "M6-2a": "Directional Arrow - (M6-2a)",
+     "M6-3": "Directional Arrow - (M6-3)",
+     "M6-4": "Directional Arrow - (M6-4)",
+     "M6-5": "Directional Arrow - (M6-5)",
+     "M6-6": "Directional Arrow - (M6-6)",
+     "M6-7": "Directional Arrow - (M6-7)",
+     "D2-1": "Distance (1 line) - (D2-1)",
+     "D2-2": "Distance (2 lines) - (D2-2)",
+     "D2-3": "Distance (3 lines) - (D2-3)",
+     "W6-1": "Divided Highway - (W6-1)",
+     "R6-3": "Divided Highway Crossing - (R6-3)",
+     "R6-3a": "Divided Highway Crossing - (R6-3a)",
+     "W6-2": "Divided Highway Ends - (W6-2)",
+     "RS-062": "Diving - (RS-062)",
+     "R10-7": "Do Not Block Intersection - (R10-7)",
+     "R4-17": "Do Not Drive on Shoulder - (R4-17)",
+     "R5-1": "Do Not Enter - (R5-1)",
+     "R4-1": "Do Not Pass - (R4-1)",
+     "R4-18": "Do Not Pass on Shoulder - (R4-18)",
+     "RS-143": "Dog Sledding - (RS-143)",
+     "W12-1": "Double Arrow - (W12-1)",
+     "RS-047": "Downhill Skiing - (RS-047)",
+     "W16-7P": "Downward Diagonal Arrow (plaque) - (W16-7P)",
+     "W3-6": "Draw Bridge - (W3-6)",
+     "RS-013": "Drinking Water - (RS-013)",
+     "RS-113": "Driving Tour - (RS-113)",
+     "M1-10": "Eisenhower Interstate System - (M1-10)",
+     "M1-10a": "Eisenhower Interstate System - (M1-10a)",
+     "D9-11b": "Electric Vehicle Charging - (D9-11b)",
+     "D9-11bP": "Electric Vehicle Charging (plaque) - (D9-11bP)",
+     "RS-150": "Electrical Hook-Up - (RS-150)",
+     "EM-6a": "Emergency Aid Center - (EM-6a)",
+     "EM-6b": "Emergency Aid Center - (EM-6b)",
+     "EM-6c": "Emergency Aid Center - (EM-6c)",
+     "EM-6d": "Emergency Aid Center - (EM-6d)",
+     "D12-4": "Emergency Call 911 - (D12-4)",
+     "D9-13cP": "Emergency Medical Care (plaque) - (D9-13cP)",
+     "D9-13": "Emergency Medical Services - (D9-13)",
+     "R8-4": "Emergency Parking Only - (R8-4)",
+     "R10-13": "Emergency Signal - (R10-13)",
+     "R10-14": "Emergency Signal - Stop on Flashing Red - (R10-14)",
+     "R10-14a": "Emergency Signal - Stop on Flashing Red (overhead) - (R10-14a)",
+     "W11-12P": "Emergency Signal Ahead (plaque) - (W11-12P)",
+     "R7-203": "Emergency Snow Route - (R7-203)",
+     "R8-7": "Emergency Stopping Only - (R8-7)",
+     "W11-8": "Emergency Vehicle - (W11-8)",
+     "M4-6": "End - (M4-6)",
+     "R3-9dP": "END - (R3-9dP)",
+     "R2-11": "End Higher Fines Zone - (R2-11)",
+     "R6-7": "END ONE WAY - (R6-7)",
+     "R3-9i": "End Reverse Lane - (R3-9i)",
+     "D10-4": "Enhanced Reference Location - (D10-4)",
+     "W4-6": "Entering Roadway Added Lane - (W4-6)",
+     "W4-5": "Entering Roadway Merge - (W4-5)",
+     "W11-7": "Equestrian - (W11-7)",
+     "M4-20": "ETC Only - (M4-20)",
+     "EM-1": "Evacuation Route - (EM-1)",
+     "EM-1a": "Evacuation Route - (EM-1a)",
+     "M4-18": "Exact Change Symbol - (M4-18)",
+     "R8-3fP": "Except on Shoulder (plaque) - (R8-3fP)",
+     "R1-10P": "Except Right Turn (plaque) - (R1-10P)",
+     "R8-3bP": "Except Sundays & Holidays (plaque) - (R8-3bP)",
+     "RS-097": "Exercise/Fitness - (RS-097)",
+     "E11-1a": "Exit - (E11-1a)",
+     "E13-2": "Exit Direction Advisory Speed - (E13-2)",
+     "E5-1": "Exit Gore (no exit number) - (E5-1)",
+     "E5-1a": "Exit Gore (with exit number) - (E5-1a)",
+     "E13-1P": "Exit Gore Advisory Speed (plaque) - (E13-1P)",
+     "E1-5aP": "Exit Number (plaque) - (E1-5aP)",
+     "E1-5P": "Exit Number (plaque) - (E1-5P)",
+     "E5-1bP": "Exit Number (plaque) - (E5-1bP)",
+     "E11-1c": "Exit Only - (E11-1c)",
+     "E11-1": "Exit Only (with arrow) - (E11-1)",
+     "E11-1d": "Exit Only (with arrow) - (E11-1d)",
+     "E11-1e": "Exit Only (with two arrows) - (E11-1e)",
+     "E11-1f": "Exit Only (with two arrows) - (E11-1f)",
+     "W19-4": "Expressway Ends - (W19-4)",
+     "W19-2": "Expressway Ends XX Miles - (W19-2)",
+     "W8-14": "Fallen Rocks - (W8-14)",
+     "RS-008": "Falling Rocks - (RS-008)",
+     "W11-5": "Farm Vehicle - (W11-5)",
+     "W11-5a": "Farm Vehicle - (W11-5a)",
+     "R7-20": "Fee Station - (R7-20)",
+     "R16-4": "Fender Bender Move Vehicles - (R16-4)",
+     "R2-6aP": "Fines Double (plaque) - (R2-6aP)",
+     "R2-6P": "Fines Higher (plaque) - (R2-6P)",
+     "RS-090": "Fire Extinguisher - (RS-090)",
+     "RS-112": "Firewood Cutting - (RS-112)",
+     "RS-024": "First Aid - (RS-024)",
+     "RS-093": "Fish Cleaning - (RS-093)",
+     "RS-010": "Fish Hatchery - (RS-010)",
+     "RS-089": "Fish Ladder - (RS-089)",
+     "RS-063": "Fishing Area - (RS-063)",
+     "RS-119": "Fishing Pier - (RS-119)",
+     "W8-19": "Flood Gauge - (W8-19)",
+     "W8-22": "Fog Area - (W8-22)",
+     "D9-8": "Food - (D9-8)",
+     "M1-7": "Forest Route - (M1-7)",
+     "W19-3": "Freeway Ends - (W19-3)",
+     "W19-1": "Freeway Ends XX Miles - (W19-1)",
+     "D13-3": "Freeway Entrance - (D13-3)",
+     "D13-3a": "Freeway Entrance (with arrow) - (D13-3a)",
+     "D9-7": "Gas - (D9-7)",
+     "D9-18a": "General Services - (D9-18a)",
+     "D9-18": "General Services (up to 6 symbols) - (D9-18)",
+     "D9-18b": "General Services (up to 6 symbols) with Action or Exit Information - (D9-18b)",
+     "D9-18c": "General Services with Action or Exit Information - (D9-18c)",
+     "I-3": "Geographical Features - (I-3)",
+     "W11-11": "Golf Cart - (W11-11)",
+     "RS-128": "Golfing - (RS-128)",
+     "RS-020": "Grocery Store - (RS-020)",
+     "W8-15": "Grooved Pavement - (W8-15)",
+     "W8-21": "Gusty Winds Area - (W8-21)",
+     "W1-11": "Hairpin Curve - (W1-11)",
+     "RS-117": "Hand Launch/Small Boat Launch - (RS-117)",
+     "D9-6": "Handicapped - (D9-6)",
+     "W11-9": "Handicapped - (W11-9)",
+     "RS-126": "Hang Gliding - (RS-126)",
+     "R14-2": "Hazardous Material - (R14-2)",
+     "R14-3": "Hazardous Material - (R14-3)",
+     "RS-068": "Hiking Trail - (RS-068)",
+     "W7-1": "Hill - (W7-1)",
+     "W7-6": "Hill Blocks View - (W7-6)",
+     "W7-1a": "Hill with Grade - (W7-1a)",
+     "W1-1": "Horizontal Alignment - (W1-1)",
+     "W1-2": "Horizontal Alignment - (W1-2)",
+     "W1-3": "Horizontal Alignment - (W1-3)",
+     "W1-4": "Horizontal Alignment - (W1-4)",
+     "W1-5": "Horizontal Alignment - (W1-5)",
+     "W11-14": "Horse-Drawn Vehicle - (W11-14)",
+     "RS-064": "Horse Trail - (RS-064)",
+     "D9-2": "Hospital - (D9-2)",
+     "D9-13aP": "Hospital (plaque) - (D9-13aP)",
+     "W16-11P": "HOV (plaque) - (W16-11P)",
+     "R3-5cP": "HOV 2+ (plaque) - (R3-5cP)",
+     "R3-15": "HOV Lane Ahead (overhead) - (R3-15)",
+     "R3-15a": "HOV Lane Begins XX Miles (overhead) - (R3-15a)",
+     "R3-15b": "HOV Lane Ends (overhead) - (R3-15b)",
+     "R3-15c": "HOV Lane Ends (overhead) - (R3-15c)",
+     "R3-14": "HOV Lane Periods of Operation (overhead) - (R3-14)",
+     "R3-14a": "HOV Lane Periods of Operation (overhead) - (R3-14a)",
+     "R3-14b": "HOV Lane Periods of Operation (overhead) - (R3-14b)",
+     "W8-5aP": "Ice - (W8-5aP)",
+     "RS-092": "Ice Fishing - (RS-092)",
+     "RS-050": "Ice Skating - (RS-050)",
+     "RS-125": "In-Line Skating - (RS-125)",
+     "R1-6": "In-Street Ped Crossing - (R1-6)",
+     "R1-6a": "In-Street Ped Crossing - (R1-6a)",
+     "D10-5": "Intermediate Enhanced Reference Location - (D10-5)",
+     "D10-1a": "Intermediate Reference Location (2 digits) - (D10-1a)",
+     "D10-2a": "Intermediate Reference Location (3 digits) - (D10-2a)",
+     "D10-3a": "Intermediate Reference Location (4 digits) - (D10-3a)",
+     "RS-114": "Interpretive Trail - (RS-114)",
+     "W2-1": "Intersection Warning - (W2-1)",
+     "W2-2": "Intersection Warning - (W2-2)",
+     "W2-3": "Intersection Warning - (W2-3)",
+     "W2-4": "Intersection Warning - (W2-4)",
+     "W2-5": "Intersection Warning - (W2-5)",
+     "W2-6": "Intersection Warning - (W2-6)",
+     "W2-7": "Intersection Warning - (W2-7)",
+     "W2-8": "Intersection Warning - (W2-8)",
+     "D5-12": "Interstate Oasis - (D5-12)",
+     "D5-12P": "Interstate Oasis (plaque) - (D5-12P)",
+     "M1-1": "Interstate Route Sign  - (M1-1)",
+     "RS-121": "Jet Ski/Personal Watercraft - (RS-121)",
+     "M2-1": "Junction - (M2-1)",
+     "I-2": "Jurisdictional Boundary - (I-2)",
+     "RS-118": "Kayaking - (RS-118)",
+     "R4-8": "Keep Left - (R4-8)",
+     "R4-8a": "Keep Left - (R4-8a)",
+     "R4-8b": "Keep Left - (R4-8b)",
+     "R11-1": "Keep Off Median - (R11-1)",
+     "R4-7": "Keep Right - (R4-7)",
+     "R4-7a": "Keep Right - (R4-7a)",
+     "R4-7b": "Keep Right - (R4-7b)",
+     "R4-16": "Keep Right Except to Pass - (R4-16)",
+     "RS-045": "Kennel - (RS-045)",
+     "M5-4": "Lane Designation - (M5-4)",
+     "M5-5": "Lane Designation - (M5-5)",
+     "M5-6": "Lane Designation - (M5-6)",
+     "W4-2": "Lane Ends - (W4-2)",
+     "W9-2": "Lane Ends Merge Left (Right) - (W9-2)",
+     "W11-16": "Large Animals - (W11-16)",
+     "W11-17": "Large Animals - (W11-17)",
+     "W11-18": "Large Animals - (W11-18)",
+     "W11-19": "Large Animals - (W11-19)",
+     "W11-20": "Large Animals - (W11-20)",
+     "W11-21": "Large Animals - (W11-21)",
+     "W11-22": "Large Animals - (W11-22)",
+     "W11-3": "Large Animals - (W11-3)",
+     "W11-4": "Large Animals - (W11-4)",
+     "W16-16P": "Last Exit Before Toll (plaque) - (W16-16P)",
+     "RS-085": "Laundromat - (RS-085)",
+     "E11-2": "Left - (E11-2)",
+     "W9-1": "Left (Right) Lane Ends - (W9-1)",
+     "R10-10": "Left (Right) Turn Signal - (R10-10)",
+     "E1-5bP": "Left Exit Number (plaque) - (E1-5bP)",
+     "R3-5bP": "Left Lane (plaque) - (R3-5bP)",
+     "R10-5": "Left on Green Arrow Only - (R10-5)",
+     "R10-27": "Left Turn Yield on Flashing Red Arrow After Stop - (R10-27)",
+     "R10-12": "Left Turn Yield on Green - (R10-12)",
+     "I-8": "Library - (I-8)",
+     "RS-094": "Lifejackets - (RS-094)",
+     "I-12": "Light Rail Transit Station - (I-12)",
+     "RS-007": "Lighthouse - (RS-007)",
+     "R16-5": "Lights On When Using Wipers or Raining - (R16-5)",
+     "R16-6": "Lights On When Using Wipers or Raining - (R16-6)",
+     "D9-4": "Litter Container - (D9-4)",
+     "RS-086": "Litter Receptacle - (RS-086)",
+     "R8-3gP": "Loading Zone (plaque) - (R8-3gP)",
+     "RS-030": "Lockers/Storage - (RS-030)",
+     "D9-9": "Lodging - (D9-9)",
+     "RS-006": "Lookout Tower - (RS-006)",
+     "W8-7": "Loose Gravel - (W8-7)",
+     "W12-2a": "Low Clearance - (W12-2a)",
+     "W12-2": "Low Clearance (with arrows) - (W12-2)",
+     "W8-9": "Low Shoulder - (W8-9)",
+     "EM-4": "Maintain Top Safe Speed - (EM-4)",
+     "R3-5": "Mandatory Movement Lane Control - (R3-5)",
+     "R3-5a": "Mandatory Movement Lane Control - (R3-5a)",
+     "RS-053": "Marina - (RS-053)",
+     "RS-027": "Mechanic - (RS-027)",
+     "RS-021": "Men's Restroom - (RS-021)",
+     "W4-1": "Merge - (W4-1)",
+     "W8-16": "Metal Bridge Deck - (W8-16)",
+     "R2-4P": "Minimum Speed Limit (plaque) - (R2-4P)",
+     "R10-20aP": "MONFRI (and times) or SUNDAY (and times) (plaque) - (R10-20aP)",
+     "RS-055": "Motorboating - (RS-055)",
+     "W8-15P": "Motorcycle (plaque) - (W8-15P)",
+     "R3-11P": "Motorcycles Allowed (plaque) - (R3-11P)",
+     "R3-1": "Movement Prohibition - (R3-1)",
+     "R3-18": "Movement Prohibition - (R3-18)",
+     "R3-2": "Movement Prohibition - (R3-2)",
+     "R3-27": "Movement Prohibition - (R3-27)",
+     "R3-3": "Movement Prohibition - (R3-3)",
+     "R3-4": "Movement Prohibition - (R3-4)",
+     "W5-2": "Narrow Bridge - (W5-2)",
+     "E5-1c": "Narrow Exit Gore - (E5-1c)",
+     "R4-8E": "Narrow Keep Left - (R4-8E)",
+     "R4-7c": "Narrow Keep Right - (R4-7c)",
+     "R14-4": "National Network - (R14-4)",
+     "R14-5": "National Network - (R14-5)",
+     "D6-4": "National Scenic Byways - (D6-4)",
+     "D6-4a": "National Scenic Byways - (D6-4a)",
+     "RS-141": "Nature Study Area - (RS-141)",
+     "R2-5bP": "Neighborhood (plaque) - (R2-5bP)",
+     "W16-15P": "New (plaque) - (W16-15P)",
+     "W23-2": "New Traffic Pattern Ahead - (W23-2)",
+     "D5-6": "Next Rest Area XX Miles - (D5-6)",
+     "D9-17P": "Next Services XX Miles (plaque) - (D9-17P)",
+     "D17-1": "Next Truck Lane XX Miles - (D17-1)",
+     "W16-4P": "Next XX Feet (plaque) - (W16-4P)",
+     "W7-3aP": "Next XX Miles (plaque) - (W7-3aP)",
+     "R2-3P": "Night Speed Limit (plaque) - (R2-3P)",
+     "R5-6": "No Bicycles - (R5-6)",
+     "M4-16": "No Cash - (M4-16)",
+     "W8-12": "No Center Line - (W8-12)",
+     "R9-14": "No Equestrian - (R9-14)",
+     "R9-4a": "No Hitchhiking - (R9-4a)",
+     "R9-4": "No Hitchhiking (symbol) - (R9-4)",
+     "W4-5P": "No Merge Area (plaque) - (W4-5P)",
+     "R5-8": "No Motor-Driven Cycles - (R5-8)",
+     "R5-3": "No Motor Vehicles - (R5-3)",
+     "R5-7": "No Non-Motorized Traffic - (R5-7)",
+     "W14-2": "No Outlet - (W14-2)",
+     "W14-2a": "No Outlet (with arrow) - (W14-2a)",
+     "R8-3a": "No Parking - (R8-3a)",
+     "R8-3": "No Parking (symbol) - (R8-3)",
+     "R7-107a": "No Parking (with transit logo) - (R7-107a)",
+     "R7-1": "No Parking Any Time - (R7-1)",
+     "R7-107": "No Parking Bus Stop - (R7-107)",
+     "R7-7": "No Parking Bus Stop - (R7-7)",
+     "R8-2": "No Parking Except on Shoulder - (R8-2)",
+     "R7-3": "No Parking Except Sundays And Holidays - (R7-3)",
+     "R7-6": "No Parking Loading Zone - (R7-6)",
+     "R8-1": "No Parking on Pavement - (R8-1)",
+     "R7-2": "No Parking X:XX AM To X:XX PM - (R7-2)",
+     "R7-2a": "No Parking X:XX AM To X:XX PM - (R7-2a)",
+     "R7-200": "No Parking/Restricted Parking (combined sign) - (R7-200)",
+     "R7-200a": "No Parking/Restricted Parking (combined sign) - (R7-200a)",
+     "W14-3": "No Passing Zone (pennant) - (W14-3)",
+     "R9-3a": "No Pedestrian Crossing - (R9-3a)",
+     "R9-3": "No Pedestrian Crossing (symbol) - (R9-3)",
+     "R5-10c": "No Pedestrians - (R5-10c)",
+     "R5-10b": "No Pedestrians or Bicycles - (R5-10b)",
+     "R5-10a": "No Pedestrians, Bicycles, Motor-Driven Cycles - (R5-10a)",
+     "W8-23": "No Shoulder - (W8-23)",
+     "R9-13": "No Skaters - (R9-13)",
+     "R7-4": "No Standing Any Time - (R7-4)",
+     "R8-6": "No Stopping Except on Shoulder - (R8-6)",
+     "R8-5": "No Stopping on Pavement - (R8-5)",
+     "R5-2": "No Trucks - (R5-2)",
+     "R5-2a": "No Trucks - (R5-2a)",
+     "R10-11": "No Turn on Red - (R10-11)",
+     "R10-11a": "No Turn on Red - (R10-11a)",
+     "R10-11b": "No Turn on Red - (R10-11b)",
+     "R10-11c": "No Turn on Red Except From Right Lane - (R10-11c)",
+     "R10-11d": "No Turn on Red From This Lane - (R10-11d)",
+     "R5-5": "No Vehicles with Lugs - (R5-5)",
+     "W16-18P": "NOTICE - (W16-18P)",
+     "M1-2": "Off-Interstate Business Route Sign - (Loop) (M1-2)",
+     "M1-3": "Off-Interstate Business Route Sign - (Spur) (M1-3)",
+     "RS-067": "Off-Road Vehicle Trail - (RS-067)",
+     "R8-3dP": "On Bridge (plaque) - (R8-3dP)",
+     "R8-3cP": "On Pavement (plaque) - (R8-3cP)",
+     "R8-3eP": "On Tracks (plaque) - (R8-3eP)",
+     "W4-4bP": "Oncoming Traffic Does Not Stop (plaque) - (W4-4bP)",
+     "W1-6": "One-Direction Large Arrow - (W1-6)",
+     "W5-3": "One Lane Bridge - (W5-3)",
+     "R6-1": "One Way - (R6-1)",
+     "R6-2": "One Way - (R6-2)",
+     "E11-1b": "Only - (E11-1b)",
+     "R3-6": "Optional Movement Lane Control - (R3-6)",
+     "R1-9": "Overhead Ped Crossing - (R1-9)",
+     "R1-9a": "Overhead Ped Crossing - (R1-9a)",
+     "D4-2": "Park & Ride - (D4-2)",
+     "RS-034": "Parking - (RS-034)",
+     "D4-1": "Parking Area - (D4-1)",
+     "R7-23": "Parking Permitted X:XX AM To X:XX PM - (R7-23)",
+     "R7-23a": "Parking Permitted XX Hour(S) XX AM \u2013 XX PM - (R7-23a)",
+     "R4-2": "Pass With Care - (R4-2)",
+     "W8-3": "Pavement Ends - (W8-3)",
+     "R7-21": "Pay Parking - (R7-21)",
+     "R7-21a": "Pay Parking - (R7-21a)",
+     "R7-22": "Pay Parking - (R7-22)",
+     "R3-29P": "Pay Toll (plaque) - (R3-29P)",
+     "W9-6": "Pay Toll XX Miles Cars (price) - (W9-6)",
+     "W9-6P": "Pay Toll XX Miles Cars (price) (plaque) - (W9-6P)",
+     "W11-2": "Pedestrian - (W11-2)",
+     "R10-3a": "Pedestrian Signs - (R10-3a)",
+     "R10-3e": "Pedestrian Signs - (R10-3e)",
+     "R10-3f": "Pedestrian Signs - (R10-3f)",
+     "R10-3g": "Pedestrian Signs - (R10-3g)",
+     "R10-3h": "Pedestrian Signs - (R10-3h)",
+     "R10-3i": "Pedestrian Signs - (R10-3i)",
+     "R10-4a": "Pedestrian Signs - (R10-4a)",
+     "R10-2": "Pedestrian Signs and Plaques - (R10-2)",
+     "R10-3": "Pedestrian Signs and Plaques - (R10-3)",
+     "R10-3b": "Pedestrian Signs and Plaques - (R10-3b)",
+     "R10-3c": "Pedestrian Signs and Plaques - (R10-3c)",
+     "R10-3d": "Pedestrian Signs and Plaques - (R10-3d)",
+     "R10-4": "Pedestrian Signs and Plaques - (R10-4)",
+     "EM-5": "Permit Required - (EM-5)",
+     "RS-017": "Pets on Leash - (RS-017)",
+     "D9-20": "Pharmacy - (D9-20)",
+     "R10-19aP": "Photo Enforced (plaque) - (R10-19aP)",
+     "W16-10aP": "Photo Enforced (plaque) - (W16-10aP)",
+     "R10-19P": "Photo Enforced (symbol plaque) - (R10-19P)",
+     "W16-10P": "Photo Enforced (symbol plaque) - (W16-10P)",
+     "RS-140": "Pick-Up Trucks - (RS-140)",
+     "RS-039": "Picnic Shelter - (RS-039)",
+     "RS-044": "Picnic Site - (RS-044)",
+     "W15-1": "Playground - (W15-1)",
+     "RS-080": "Point of Interest - (RS-080)",
+     "D9-14": "Police - (D9-14)",
+     "RS-026": "Post Office - (RS-026)",
+     "R3-15d": "Preferential Lane Ahead or Ends (overhead) - (R3-15d)",
+     "R3-15e": "Preferential Lane Ahead or Ends (overhead) - (R3-15e)",
+     "R3-12 series": "Preferential Lane Ahead or Ends (post-mounted) - (R3-12 series)",
+     "E8-4": "Preferential Lane Direct Exit Gore - (E8-4)",
+     "E8-3": "Preferential Lane Entrance Advance - (E8-3)",
+     "E8-2": "Preferential Lane Entrance Direction (overhead) - (E8-2)",
+     "E8-2a": "Preferential Lane Entrance Direction (post-mounted) - (E8-2a)",
+     "E8-1": "Preferential Lane Entrance Gore - (E8-1)",
+     "E8-6": "Preferential Lane Intermediate Egress Advance - (E8-6)",
+     "E8-5": "Preferential Lane Intermediate Egress Direction - (E8-5)",
+     "E8-1a": "Preferential Lane Intermediate Entrance Gore - (E8-1a)",
+     "R3-14c": "Preferential Lane Periods of Operation (overhead) - (R3-14c)",
+     "R3-13": "Preferential Lane Vehicle Occupancy Definition (overhead) - (R3-13)",
+     "R3-13a": "Preferential Lane Vehicle Occupancy Definition (overhead) - (R3-13a)",
+     "R3-10": "Preferential Lane Vehicle Occupancy Definition (post-mounted) - (R3-10)",
+     "R3-10a": "Preferential Lane Vehicle Occupancy Definition (post-mounted) - (R3-10a)",
+     "R3-45": "Priced Managed Lane Ends (overhead) - (R3-45)",
+     "R3-45a": "Priced Managed Lane Ends (overhead) - (R3-45a)",
+     "R3-42": "Priced Managed Lane Ends (post-mounted) - (R3-42)",
+     "R3-42b": "Priced Managed Lane Ends (post-mounted) - (R3-42b)",
+     "R3-42a": "Priced Managed Lane Ends Advance (post-mounted) - (R3-42a)",
+     "R3-42c": "Priced Managed Lane Ends Advance (post-mounted) - (R3-42c)",
+     "R3-44": "Priced Managed Lane Periods of Operation (overhead) - (R3-44)",
+     "R3-44a": "Priced Managed Lane Periods of Operation (overhead) - (R3-44a)",
+     "R3-48": "Priced Managed Lane Toll Rate - (R3-48)",
+     "R3-48a": "Priced Managed Lane Toll Rate  - (R3-48a)",
+     "R3-43": "Priced Managed Lane Vehicle Occupancy Definition - (R3-43)",
+     "R3-40": "Priced Managed Lane Vehicle Occupancy Definition (post-mounted) - (R3-40)",
+     "D9-15": "Propane Gas - (D9-15)",
+     "E6-2": "Pull-Through - (E6-2)",
+     "E6-2a": "Pull-Through - (E6-2a)",
+     "R10-32P": "Push Button for 2 Seconds for Extra Crossing Time - (R10-32P)",
+     "R10-25": "Push Button To Turn On Warning Lights - (R10-25)",
+     "RS-103": "Radios - (RS-103)",
+     "RS-146": "Rafting - (RS-146)",
+     "W3-7": "Ramp Meter Ahead - (W3-7)",
+     "W3-8": "Ramp Metered When Flashing - (W3-8)",
+     "RS-015": "Ranger Station - (RS-015)",
+     "RS-099": "Rattlesnakes - (RS-099)",
+     "RS-104": "Recreational Vehicle Site - (RS-104)",
+     "RS-200": "Recycling - (RS-200)",
+     "I-11": "Recycling Collection Center - (I-11)",
+     "W3-5": "Reduced Speed Limit Ahead - (W3-5)",
+     "D10-1": "Reference Location (1 digit) - (D10-1)",
+     "D10-2": "Reference Location (2 digits) - (D10-2)",
+     "D10-3": "Reference Location (3 digits) - (D10-3)",
+     "R7-8": "Reserved Parking For Persons With Disabilities  - (R7-8)",
+     "R2-5cP": "Residential (plaque) - (R2-5cP)",
+     "D5-2": "Rest Area (with arrow) - (D5-2)",
+     "D5-5": "Rest Area (with horizontal arrow) - (D5-5)",
+     "D5-2a": "Rest Area Gore - (D5-2a)",
+     "D5-1a": "Rest Area Next Right - (D5-1a)",
+     "D5-8": "Rest Area Tourist Info Center (with arrow) - (D5-8)",
+     "D5-11": "Rest Area Tourist Info Center Next Right - (D5-11)",
+     "D5-7": "Rest Area Tourist Info Center XX Miles - (D5-7)",
+     "D5-1": "Rest Area XX Miles - (D5-1)",
+     "RS-022": "Restrooms - (RS-022)",
+     "R3-9f": "Reversible Lane Control (post-mounted) - (R3-9f)",
+     "R3-9e": "Reversible Lane Control (symbol) - (R3-9e)",
+     "W9-7": "Right (Left) Lane Exit Only Ahead - (W9-7)",
+     "R3-7": "Right (Left) Lane Must Turn Right (Left) - (R3-7)",
+     "R3-5fP": "Right Lane (plaque) - (R3-5fP)",
+     "R3-33": "Right Lane Must Exit - (R3-33)",
+     "R10-17a": "Right on Red Arrow After Stop - (R10-17a)",
+     "R10-30": "Right Turn on Red Must Yield to U-Turn - (R10-30)",
+     "R11-2": "Road Closed - (R11-2)",
+     "R11-3a": "Road Closed - Local Traffic Only - (R11-3a)",
+     "R11-3b": "Road Closed - Local Traffic Only - (R11-3b)",
+     "R11-4": "Road Closed - Local Traffic Only - (R11-4)",
+     "W8-5bP": "Road Condition (plaques) - (W8-5bP)",
+     "W8-5cP": "Road Condition (plaques) - (W8-5cP)",
+     "W8-5P": "Road Condition (plaques) - (W8-5P)",
+     "W8-18": "Road May Flood - (W8-18)",
+     "W5-1": "Road Narrows - (W5-1)",
+     "RS-083": "Rock Collecting - (RS-083)",
+     "W8-8": "Rough Road - (W8-8)",
+     "W16-17P": "Roundabout (plaque) - (W16-17P)",
+     "R6-5P": "Roundabout Circulation (plaque) - (R6-5P)",
+     "R6-4": "Roundabout Directional (2 chevrons) - (R6-4)",
+     "R6-4a": "Roundabout Directional (3 chevrons) - (R6-4a)",
+     "R6-4b": "Roundabout Directional (4 chevrons) - (R6-4b)",
+     "RS-057": "Rowboating - (RS-057)",
+     "W7-4b": "Runaway Truck Ramp (with arrow) - (W7-4b)",
+     "W7-4": "Runaway Truck Ramp XX Miles - (W7-4)",
+     "R4-10": "Runaway Vehicles Only - (R4-10)",
+     "D9-12": "RV Sanitatary Station - (D9-12)",
+     "RS-056": "Sailing - (RS-056)",
+     "W7-4dP": "Sand, Gravel, Paved (plaques) - (W7-4dP)",
+     "W7-4eP": "Sand, Gravel, Paved (plaques) - (W7-4eP)",
+     "W7-4fP": "Sand, Gravel, Paved (plaques) - (W7-4fP)",
+     "RS-041": "Sanitary Station - (RS-041)",
+     "RS-060": "Scuba Diving - (RS-060)",
+     "RS-115": "Sea Plane - (RS-115)",
+     "RS-106": "Seal Viewing - (RS-106)",
+     "W16-1P": "Share the Road (plaque) - (W16-1P)",
+     "EM-7a": "Shelter Directional - (EM-7a)",
+     "EM-7b": "Shelter Directional - (EM-7b)",
+     "EM-7c": "Shelter Directional - (EM-7c)",
+     "EM-7d": "Shelter Directional - (EM-7d)",
+     "W8-17P": "Shoulder Drop-Off (plaque) - (W8-17P)",
+     "W8-17": "Shoulder Drop Off (symbol) - (W8-17)",
+     "W8-25": "Shoulder Ends - (W8-25)",
+     "RS-035": "Showers - (RS-035)",
+     "I1-1": "Signals Set for XX MPH - (I1-1)",
+     "RS-098": "Skateboarding - (RS-098)",
+     "RS-048": "Ski Jumping - (RS-048)",
+     "RS-049": "Sledding - (RS-049)",
+     "RS-037": "Sleeping Shelter - (RS-037)",
+     "W8-5": "Slippery When Wet - (W8-5)",
+     "D17-7": "Slow Vehicle Turn-Out XX Miles - (D17-7)",
+     "R4-14": "Slow Vehicles Must Turn Out - (R4-14)",
+     "R4-13": "Slow Vehicles Must Use Turn-Out Ahead - (R4-13)",
+     "R4-12": "Slow Vehicles with XX or More Following Vehicles Must Use Turn-Out - (R4-12)",
+     "R4-3": "Slower Traffic Keep Right - (R4-3)",
+     "RS-002": "Smoking - (RS-002)",
+     "RS-102": "Snack Bar - (RS-102)",
+     "RS-144": "Snow Tubing - (RS-144)",
+     "RS-127": "Snowboarding - (RS-127)",
+     "W11-6": "Snowmobile - (W11-6)",
+     "RS-052": "Snowmobiling - (RS-052)",
+     "RS-078": "Snowshoeing - (RS-078)",
+     "W8-4": "Soft Shoulder - (W8-4)",
+     "W17-1": "Speed Hump - (W17-1)",
+     "R2-1": "Speed Limit - (R2-1)",
+     "RS-084": "Spelunking/Caves - (RS-084)",
+     "RS-073": "Stable - (RS-073)",
+     "M1-5": "State Route Sign - (M1-5)",
+     "R4-9": "Stay in Lane - (R4-9)",
+     "RS-123": "Stay on Trail - (RS-123)",
+     "R1-1": "Stop - (R1-1)",
+     "W9-6aP": "Stop Ahead Pay Toll (plaque) - (W9-6aP)",
+     "W9-6a": "Stop Ahead Pay Toll Cars (price) - (W9-6a)",
+     "R1-5c": "Stop Here for Pedestrians - (R1-5c)",
+     "R1-5b": "Stop Here for Peds - (R1-5b)",
+     "R10-6": "Stop Here on Red - (R10-6)",
+     "R10-6a": "Stop Here on Red - (R10-6a)",
+     "D3-1": "Street Name (1 line) - (D3-1)",
+     "D3-1a": "Street Name (1 line) - (D3-1a)",
+     "RS-111": "Strollers - (RS-111)",
+     "W16-5P": "Supplemental Arrow (plaque) - (W16-5P)",
+     "W16-6P": "Supplemental Arrow (plaque) - (W16-6P)",
+     "RS-059": "Surfing - (RS-059)",
+     "RS-061": "Swimming - (RS-061)",
+     "R3-30P": "Take Ticket (plaque) - (R3-30P)",
+     "R3-5dP": "Taxi Lane (plaque) - (R3-5dP)",
+     "RS-081": "Technical Rock Climbing - (RS-081)",
+     "D9-21": "Telecommunication Device for the Deaf - (D9-21)",
+     "D9-1": "Telephone - (D9-1)",
+     "M4-7": "Temporary - (M4-7)",
+     "M4-7a": "Temporary - (M4-7a)",
+     "RS-129": "Tennis - (RS-129)",
+     "RS-109": "Theater - (RS-109)",
+     "R7-202P": "This Side of Sign (plaque) - (R7-202P)",
+     "R8-3hP": "Times of Day (plaque) - (R8-3hP)",
+     "M4-5": "To - (M4-5)",
+     "R1-2aP": "To Oncoming Traffic (plaque) - (R1-2aP)",
+     "M4-15": "Toll - (M4-15)",
+     "M4-17": "Toll Collector Symbol - (M4-17)",
+     "R3-28": "Toll Rate - (R3-28)",
+     "RS-087": "Tour Boat - (RS-087)",
+     "D9-10": "Tourist Information - (D9-10)",
+     "R7-201aP": "Tow Away Zone (plaque) - (R7-201aP)",
+     "R7-201P": "Tow Away Zone (plaque) - (R7-201P)",
+     "W16-12P": "Traffic Circle (plaque) - (W16-12P)",
+     "EM-3": "Traffic Control Point - (EM-3)",
+     "W4-4aP": "Traffic From Left (Right) Does Not Stop (plaque) - (W4-4aP)",
+     "R10-18": "Traffic Laws Photo Enforced - (R10-18)",
+     "W25-1": "Traffic Signal Extended Green - (W25-1)",
+     "W25-2": "Traffic Signal Extended Green - (W25-2)",
+     "W11-15a": "Trail Crossing - (W11-15a)",
+     "RS-043": "Trail Shelter - (RS-043)",
+     "W11-15P": "Trail X-ing (plaque) - (W11-15P)",
+     "D9-3a": "Trailer Camping - (D9-3a)",
+     "RS-040": "Trailer Site - (RS-040)",
+     "I-7": "Train Station - (I-7)",
+     "RS-071": "Tramway - (RS-071)",
+     "RS-091": "Trash Dumpster - (RS-091)",
+     "D9-13dP": "Trauma Center (plaque) - (D9-13dP)",
+     "D12-5a": "Travel Info Call 511 - (D12-5a)",
+     "D12-5": "Travel Info Call 511 (pictograph) - (D12-5)",
+     "M4-4": "Truck - (M4-4)",
+     "W11-10": "Truck - (W11-10)",
+     "W8-6": "Truck Crossing - (W8-6)",
+     "W7-4c": "Truck Escape Ramp - (W7-4c)",
+     "D17-2": "Truck Lane XX Miles - (D17-2)",
+     "D9-16": "Truck Parking - (D9-16)",
+     "W1-13": "Truck Rollover - (W1-13)",
+     "R14-1": "Truck Route - (R14-1)",
+     "R2-2P": "Truck Speed Limit (plaque) - (R2-2P)",
+     "W7-2bP": "Trucks Use Lower Gear (plaque) - (W7-2bP)",
+     "R4-5": "Trucks Use Right Lane - (R4-5)",
+     "RS-005": "Tunnel - (RS-005)",
+     "R16-7": "Turn On Headlights Next XX Miles - (R16-7)",
+     "R16-8": "Turn On, Check Headlights - (R16-8)",
+     "R16-9": "Turn On, Check Headlights - (R16-9)",
+     "R10-15": "Turning Vehicles Yield To Peds - (R10-15)",
+     "W1-7": "Two-Direction Large Arrow - (W1-7)",
+     "R3-9a": "Two-Way Left Turn Only (overhead) - (R3-9a)",
+     "R3-9b": "Two-Way Left Turn Only (post-mounted) - (R3-9b)",
+     "W6-3": "Two-Way Traffic - (W6-3)",
+     "R10-16": "U-Turn Yield to Right Turn - (R10-16)",
+     "R3-24a": "U and Left Turns with arrow - (R3-24a)",
+     "R3-25a": "U and Left Turns with arrow - (R3-25a)",
+     "R3-26": "U and Left Turns with arrow - (R3-26)",
+     "M1-4": "U.S. Route Sign - (M1-4)",
+     "W8-11": "Uneven Lanes - (W8-11)",
+     "R2-5P": "Unless Otherwise Posted (plaque) - (R2-5P)",
+     "R9-3bP": "Use Crosswalk (plaque) - (R9-3bP)",
+     "R10-8": "Use Lane with Green Arrow - (R10-8)",
+     "W7-2P": "Use Low Gear (plaque) - (W7-2P)",
+     "D9-6P": "Van Accessible (plaque) - (D9-6P)",
+     "R7-8p": "Van Accessible (plaque) - (R7-8p)",
+     "I-9": "Vehicle Ferry Terminal - (I-9)",
+     "RS-036": "Viewing Area - (RS-036)",
+     "RS-088": "Wading - (RS-088)",
+     "RS-148": "Walk-In Camp - (RS-148)",
+     "RS-122": "Walk on Boardwalk - (RS-122)",
+     "R9-1": "Walk on Left Facing Traffic - (R9-1)",
+     "RS-058": "Waterskiing - (RS-058)",
+     "D12-1": "Weather Information - (D12-1)",
+     "R13-1": "Weigh Station - (R13-1)",
+     "D8-3": "Weigh Station (with arrow) - (D8-3)",
+     "D8-2": "Weigh Station Next Right - (D8-2)",
+     "D8-1": "Weigh Station XX Miles - (D8-1)",
+     "R12-1": "Weight Limit - (R12-1)",
+     "R12-2": "Weight Limit - (R12-2)",
+     "R12-3": "Weight Limit - (R12-3)",
+     "R12-4": "Weight Limit - (R12-4)",
+     "R12-5": "Weight Limit - (R12-5)",
+     "RS-107": "Whale Viewing - (RS-107)",
+     "W16-13P": "When Flashing (plaque) - (W16-13P)",
+     "RS-076": "Wildlife Viewing - (RS-076)",
+     "RS-108": "Wind Surfing - (RS-108)",
+     "RS-077": "Winter Recreational Area - (RS-077)",
+     "D9-22": "Wireless Internet - (D9-22)",
+     "RS-023": "Women's Restroom - (RS-023)",
+     "RS-120": "Wood Gathering - (RS-120)",
+     "R5-1a": "Wrong Way - (R5-1a)",
+     "W16-2P": "XX Feet - (W16-2P)",
+     "W16-2aP": "XX Ft - (W16-2aP)",
+     "R7-5": "XX Hour Parking X:XX AM \u2013 X:XX - (R7-5)",
+     "R7-108": "XX HR Parking X:XX AM To X:XX PM - (R7-108)",
+     "W16-3aP": "XX Miles (1-line plaque) - (W16-3aP)",
+     "W16-3P": "XX Miles (2-line plaque) - (W16-3P)",
+     "W3-5a": "XX MPH Speed Zone Ahead - (W3-5a)",
+     "R10-28": "XX Vehicles Per Green - (R10-28)",
+     "R10-29": "XX Vehicles Per Green Each Lane - (R10-29)",
+     "W7-3P": "XX% Grade (plaque) - (W7-3P)",
+     "W7-3bP": "XX% Grade, XX Miles (plaque) - (W7-3bP)",
+     "R1-2": "Yield - (R1-2)",
+     "R1-5a": "Yield Here to Pedestrians - (R1-5a)",
+     "R1-5": "Yield Here to Peds - (R1-5)"
+    },
+    "color": {
+     "Black": "Black",
+     "Blue": "Blue",
+     "Brown": "Brown",
+     "Green": "Green",
+     "Orange": "Orange",
+     "Purple": "Purple",
+     "Red": "Red",
+     "White": "White",
+     "Yellow": "Yellow",
+     "Other": "Other"
+    },
+    "sheeting": {
+     "Type I (Engineer Grade)": "Type I (Engineer Grade)",
+     "Type II (Super Engineer Grade)": "Type II (Super Engineer Grade)",
+     "Type V (Metallized Microprismatic)": "Type V (Metallized Microprismatic)",
+     "Type VI (Vinyl Backed Microprismatic)": "Type VI (Vinyl Backed Microprismatic)",
+     "Type III (High Intensity Grade)": "Type III (High Intensity Grade)",
+     "Type IV (High-Intensity Primsatic or Microprismatic Grade)": "Type IV (High-Intensity Primsatic or Microprismatic Grade)",
+     "Type VII (Diamond Grade LDP)": "Type VII (Diamond Grade LDP)",
+     "Type VIII (Crystal Grade or Maximum Visual Performance Grade)": "Type VIII (Crystal Grade or Maximum Visual Performance Grade)",
+     "Type IX (Diamond Grade VIP, Omniview, or Oralite)": "Type IX (Diamond Grade VIP, Omniview, or Oralite)",
+     "Type X (Microprismatic Sheeting - Similar to Types VII-IX)": "Type X (Microprismatic Sheeting - Similar to Types VII-IX)",
+     "Type XI (Omincube or Diamond Grade DG3)": "Type XI (Omincube or Diamond Grade DG3)",
+     "Other": "Other",
+     "Unknown": "Unkown"
+    },
+    "substrate": {
+     "Aluminum": "Aluminum",
+     "Plastic": "Plastic",
+     "Wood": "Wood",
+     "Other": "Other",
+     "Unknown": "Unkown"
+    },
+    "supplemental": {
+     "Yes": "Yes",
+     "No": "No"
+    },
+    "dimunits": {
+     "Inches": "Inches",
+     "Centimeters": "Centimeters"
+    },
+    "latoffsetunits": {
+     "Feet": "Feet",
+     "Meters": "Meters"
+    },
+    "mountunits": {
+     "Feet": "Feet",
+     "Meters": "Meters"
+    },
+    "facingdirection": {
+     "East": "East",
+     "North": "North",
+     "South": "South",
+     "West": "West",
+     "Northeast": "Northeast",
+     "Northwest": "Northwest",
+     "Southeast": "Southeast",
+     "Southwest": "Southwest",
+     "North/South": "North/South",
+     "East/West": "East/West",
+     "Northeast/Southwest": "Northeast/Southwest",
+     "Northwest/Southeast": "Northwest/Southeast"
+    },
+    "curbregulations": {
+     "Yes": "Yes",
+     "No": "No"
+    },
+    "regdirection": {
+     "Left": "Left",
+     "Right": "Right",
+     "Double": "Double",
+     "None": "None"
+    },
+    "ownedby": {
+     "0": "Our Agency",
+     "1": "Private",
+     "2": "Other"
+    },
+    "maintainedby": {
+     "0": "Our Agency",
+     "1": "Private",
+     "2": "Other"
+    },
+    "collectedby": {
+     "0": "Our Agency",
+     "1": "Private",
+     "2": "Other"
+    },
+    "condition": {
+     "5": "Very Good",
+     "4": "Good",
+     "3": "Fair",
+     "2": "Poor",
+     "1": "Very Poor",
+     "0": "Unknown"
+    },
+    "reflectivity": {
+     "0": "Fail",
+     "1": "Marginal",
+     "2": "Adequate"
+    },
+    "maintenance": {
+     "Yes": "Yes",
+     "No": "No"
+    },
+    "replacement": {
+     "Yes": "Yes",
+     "No": "No"
+    },
+    "retired": {
+     "Yes": "Yes",
+     "No": "No"
+    },
+    "esrignss_positionsourcetype": {
+     "0": "Unknown",
+     "1": "User defined",
+     "2": "Integrated (System) Location Provider",
+     "3": "External GNSS Receiver",
+     "4": "Network Location Provider"
+    },
+    "esrignss_fixtype": {
+     "0": "Fix not valid",
+     "1": "GPS",
+     "2": "Differential GPS",
+     "4": "RTK Fixed",
+     "5": "RTK Float"
+    },
+    "inspcondition": {
+     "Good": "Good",
+     "Fair": "Fair",
+     "Poor": "Poor",
+     "Needs Replacement": "Needs Replacement"
+    }
+   },
+   "photos": true
+  },
+  {
+   "id": "fire_hydrants",
+   "table": "fire_hydrants",
+   "title": "Fire Hydrants (practice)",
+   "group": null,
+   "geometry": "point",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "icon",
+     "icon": "41056d175e3f.png",
+     "width": 20.0,
+     "height": 20.0
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "Fire Hydrant {objectid}",
+    "fields": [
+     {
+      "name": "esrignss_altitude",
+      "label": "Altitude",
+      "date": false
+     },
+     {
+      "name": "esrignss_avg_h_rms",
+      "label": "Average Horizontal Accuracy (m)",
+      "date": false
+     },
+     {
+      "name": "esrignss_avg_v_rms",
+      "label": "Average Vertical Accuracy (m)",
+      "date": false
+     },
+     {
+      "name": "esrignss_avg_positions",
+      "label": "Averaged Positions",
+      "date": false
+     },
+     {
+      "name": "esrisnsr_azimuth",
+      "label": "Compass reading (\u00b0)",
+      "date": false
+     },
+     {
+      "name": "esrignss_correctionage",
+      "label": "Correction Age",
+      "date": false
+     },
+     {
+      "name": "esrignss_direction",
+      "label": "Direction of travel (\u00b0)",
+      "date": false
+     },
+     {
+      "name": "esrignss_fixdatetime",
+      "label": "Fix Time",
+      "date": false
+     },
+     {
+      "name": "esrignss_fixtype",
+      "label": "Fix Type",
+      "date": false
+     },
+     {
+      "name": "esrignss_hdop",
+      "label": "HDOP",
+      "date": false
+     },
+     {
+      "name": "esrignss_h_rms",
+      "label": "Horizontal Accuracy (m)",
+      "date": false
+     },
+     {
+      "name": "esrignss_latitude",
+      "label": "Latitude",
+      "date": false
+     },
+     {
+      "name": "esrignss_longitude",
+      "label": "Longitude",
+      "date": false
+     },
+     {
+      "name": "notes",
+      "label": "Notes",
+      "date": false
+     },
+     {
+      "name": "esrignss_numsats",
+      "label": "Number of Satellites",
+      "date": false
+     },
+     {
+      "name": "esrignss_pdop",
+      "label": "PDOP",
+      "date": false
+     },
+     {
+      "name": "esrignss_positionsourcetype",
+      "label": "Position source type",
+      "date": false
+     },
+     {
+      "name": "esrignss_receiver",
+      "label": "Receiver Name",
+      "date": false
+     },
+     {
+      "name": "esrignss_speed",
+      "label": "Speed (km/h)",
+      "date": false
+     },
+     {
+      "name": "esrignss_h_stddev",
+      "label": "Standard Deviation (m)",
+      "date": false
+     },
+     {
+      "name": "esrignss_stationid",
+      "label": "Station ID",
+      "date": false
+     },
+     {
+      "name": "esrignss_vdop",
+      "label": "VDOP",
+      "date": false
+     },
+     {
+      "name": "esrignss_v_rms",
+      "label": "Vertical Accuracy (m)",
+      "date": false
+     }
+    ]
+   },
+   "domains": {
+    "esrignss_positionsourcetype": {
+     "0": "Unknown",
+     "1": "User defined",
+     "2": "Integrated (System) Location Provider",
+     "3": "External GNSS Receiver",
+     "4": "Network Location Provider",
+     "5": "Snapped"
+    },
+    "esrignss_fixtype": {
+     "0": "NoFix",
+     "1": "GPS",
+     "2": "DifferentialGPS",
+     "3": "PrecisePositioningService",
+     "4": "RTKFixed",
+     "5": "RTKFloat"
+    },
+    "condition": {
+     "Good": "Good",
+     "Fair": "Fair",
+     "Poor": "Poor",
+     "Needs Replacement": "Needs Replacement"
+    }
+   },
+   "photos": true
+  },
+  {
+   "id": "control_points",
+   "table": "control_points",
+   "title": "Control (practice)",
+   "group": null,
+   "geometry": "point",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "icon",
+     "icon": "042c988b7bee.png",
+     "width": 20.0,
+     "height": 20.0
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "Control (practice): {point_name}",
+    "fields": [
+     {
+      "name": "descriptio",
+      "label": "Descriptio",
+      "date": false
+     },
+     {
+      "name": "elevation",
+      "label": "Elevation",
+      "date": false
+     },
+     {
+      "name": "latitude",
+      "label": "Latitude",
+      "date": false
+     },
+     {
+      "name": "longitude",
+      "label": "Longitude",
+      "date": false
+     },
+     {
+      "name": "point_name",
+      "label": "Point_Name",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": false
+  },
+  {
+   "id": "monuments",
+   "table": "monuments",
+   "title": "Monuments (practice)",
+   "group": null,
+   "geometry": "point",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "icon",
+     "icon": "042c988b7bee.png",
+     "width": 20.0,
+     "height": 20.0
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "Monuments (practice): {point_name}",
+    "fields": [
+     {
+      "name": "descriptio",
+      "label": "Descriptio",
+      "date": false
+     },
+     {
+      "name": "elevation",
+      "label": "Elevation",
+      "date": false
+     },
+     {
+      "name": "latitude",
+      "label": "Latitude",
+      "date": false
+     },
+     {
+      "name": "longitude",
+      "label": "Longitude",
+      "date": false
+     },
+     {
+      "name": "mesh",
+      "label": "Mesh",
+      "date": false
+     },
+     {
+      "name": "point_name",
+      "label": "Point_Name",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": false
+  },
+  {
+   "id": "aerial_targets",
+   "table": "aerial_targets",
+   "title": "Aerial Targets (practice)",
+   "group": null,
+   "geometry": "point",
+   "visible": true,
+   "opacity": 1,
+   "renderer": {
+    "type": "simple",
+    "symbol": {
+     "kind": "icon",
+     "icon": "042c988b7bee.png",
+     "width": 20.0,
+     "height": 20.0
+    },
+    "label": ""
+   },
+   "popup": {
+    "title": "Aerial Targets (practice): {point_name}",
+    "fields": [
+     {
+      "name": "descriptio",
+      "label": "Descriptio",
+      "date": false
+     },
+     {
+      "name": "elevation",
+      "label": "Elevation",
+      "date": false
+     },
+     {
+      "name": "latitude",
+      "label": "Latitude",
+      "date": false
+     },
+     {
+      "name": "longitude",
+      "label": "Longitude",
+      "date": false
+     },
+     {
+      "name": "point_name",
+      "label": "Point_Name",
+      "date": false
+     }
+    ]
+   },
+   "domains": {},
+   "photos": false
+  }
+ ],
+ "initialExtent": {
+  "spatialReference": {
+   "latestWkid": 3857,
+   "wkid": 102100,
+   "falseM": -100000,
+   "falseX": -20037700,
+   "falseY": -30241100,
+   "falseZ": -100000,
+   "mTolerance": 0.001,
+   "mUnits": 10000,
+   "xyTolerance": 0.001,
+   "xyUnits": 10000,
+   "zTolerance": 0.001,
+   "zUnits": 10000
+  },
+  "xmin": -13557924.19961921,
+  "ymin": 4829028.719851881,
+  "xmax": -13552888.91038079,
+  "ymax": 4833882.471148118
+ }
+}

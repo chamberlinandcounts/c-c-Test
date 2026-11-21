@@ -1,0 +1,123 @@
+{
+ "type": "uniqueValue",
+ "field": "status",
+ "classes": [
+  {
+   "value": "New",
+   "label": "New",
+   "symbol": {
+    "kind": "marker",
+    "shape": "circle",
+    "color": "rgba(230,0,0,1.0)",
+    "size": 13.33,
+    "outline": "rgba(255,255,255,1.0)",
+    "outlineWidth": 1.33
+   }
+  },
+  {
+   "value": "new",
+   "label": "New",
+   "symbol": {
+    "kind": "marker",
+    "shape": "circle",
+    "color": "rgba(230,0,0,1.0)",
+    "size": 13.33,
+    "outline": "rgba(255,255,255,1.0)",
+    "outlineWidth": 1.33
+   }
+  },
+  {
+   "value": "Assigned",
+   "label": "Assigned",
+   "symbol": {
+    "kind": "marker",
+    "shape": "circle",
+    "color": "rgba(255,140,0,1.0)",
+    "size": 13.33,
+    "outline": "rgba(255,255,255,1.0)",
+    "outlineWidth": 1.33
+   }
+  },
+  {
+   "value": "assigned",
+   "label": "Assigned",
+   "symbol": {
+    "kind": "marker",
+    "shape": "circle",
+    "color": "rgba(255,140,0,1.0)",
+    "size": 13.33,
+    "outline": "rgba(255,255,255,1.0)",
+    "outlineWidth": 1.33
+   }
+  },
+  {
+   "value": "In progress",
+   "label": "In progress",
+   "symbol": {
+    "kind": "marker",
+    "shape": "circle",
+    "color": "rgba(255,215,0,1.0)",
+    "size": 13.33,
+    "outline": "rgba(255,255,255,1.0)",
+    "outlineWidth": 1.33
+   }
+  },
+  {
+   "value": "in progress",
+   "label": "In progress",
+   "symbol": {
+    "kind": "marker",
+    "shape": "circle",
+    "color": "rgba(255,215,0,1.0)",
+    "size": 13.33,
+    "outline": "rgba(255,255,255,1.0)",
+    "outlineWidth": 1.33
+   }
+  },
+  {
+   "value": "in_progress",
+   "label": "In progress",
+   "symbol": {
+    "kind": "marker",
+    "shape": "circle",
+    "color": "rgba(255,215,0,1.0)",
+    "size": 13.33,
+    "outline": "rgba(255,255,255,1.0)",
+    "outlineWidth": 1.33
+   }
+  },
+  {
+   "value": "Resolved",
+   "label": "Resolved",
+   "symbol": {
+    "kind": "marker",
+    "shape": "circle",
+    "color": "rgba(0,170,0,1.0)",
+    "size": 13.33,
+    "outline": "rgba(255,255,255,1.0)",
+    "outlineWidth": 1.33
+   }
+  },
+  {
+   "value": "resolved",
+   "label": "Resolved",
+   "symbol": {
+    "kind": "marker",
+    "shape": "circle",
+    "color": "rgba(0,170,0,1.0)",
+    "size": 13.33,
+    "outline": "rgba(255,255,255,1.0)",
+    "outlineWidth": 1.33
+   }
+  }
+ ],
+ "default": {
+  "kind": "marker",
+  "shape": "circle",
+  "color": "rgba(150,150,150,1.0)",
+  "size": 13.33,
+  "outline": "rgba(255,255,255,1.0)",
+  "outlineWidth": 1.33
+ },
+ "defaultLabel": "Other"
+}

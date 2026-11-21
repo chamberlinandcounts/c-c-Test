@@ -1,0 +1,94 @@
+# Canyon Oaks open-source GIS stack (replaces the ArcGIS Online hosted layers,
+# web map, dashboards and Survey123 form). Only `web` publishes a port, and only
+# on 127.0.0.1 (the Cloudflare tunnel connects to it locally).
+name: canyon-oaks
+
+services:
+  db:
+    image: postgis/postgis:17-3.5
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-canyon_oaks}
+      POSTGRES_USER: ${POSTGRES_USER:-canyon}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+    command: >
+      postgres -c shared_buffers=512MB -c effective_cache_size=2GB -c work_mem=16MB
+               -c maintenance_work_mem=128MB -c max_connections=60
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+      - ./seed:/seed:ro
+    shm_size: 256mb
+    mem_limit: 2g
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  tiles:
+    image: ghcr.io/maplibre/martin:latest
+    restart: unless-stopped
+    command: ["--config", "/config/martin.yaml"]
+    environment:
+      PG_CONNECTION: postgres://${POSTGRES_USER:-canyon}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-canyon_oaks}
+      RUST_LOG: martin=info
+    volumes:
+      - ./tiles/martin.yaml:/config/martin.yaml:ro
+      - ./data/tiles:/tiles:ro
+    depends_on:
+      db:
+        condition: service_healthy
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:3000/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: ./api
+    image: canyon-oaks-api:latest
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-canyon}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB:-canyon_oaks}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-}
+      RATE_LIMIT_PER_HOUR: ${RATE_LIMIT_PER_HOUR:-10}
+      EMAIL_ENABLED: ${EMAIL_ENABLED:-false}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
+      EMAIL_FROM: ${EMAIL_FROM:-}
+      EMAIL_STAFF_TO: ${EMAIL_STAFF_TO:-}
+      EMAIL_CONFIRM_REPORTER: ${EMAIL_CONFIRM_REPORTER:-false}
+      ATTACHMENTS_DIR: /data/attachments
+      UPLOADS_DIR: /data/uploads
+      RUST_LOG: canyon_oaks_api=info,tower_http=info
+    volumes:
+      - ./seed/attachments:/data/attachments:ro
+      - ./data/uploads:/data/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    mem_limit: 512m
+
+  web:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${WEB_PORT:-8080}:80"
+    volumes:
+      - ./web/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./web/site:/srv:ro
+      - ./data/caddy:/data
+    depends_on:
+      api:
+        condition: service_healthy
+      tiles:
+        condition: service_healthy
+    mem_limit: 256m
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O- http://127.0.0.1/healthz >/dev/null || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5

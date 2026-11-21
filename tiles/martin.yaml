@@ -1,0 +1,19 @@
+# Martin tile server config. Only the `public` schema is published: the `app`
+# schema (homeowner issue tickets with names/emails) is never exposed as tiles.
+listen_addresses: 0.0.0.0:3000
+cache_size_mb: 256
+postgres:
+  connection_string: ${PG_CONNECTION}
+  default_srid: 4326
+  pool_size: 8
+  auto_bounds: skip
+  auto_publish:
+    from_schemas:
+      - public
+    tables:
+      source_id_format: "{table}"
+      id_columns: ogc_fid
+    functions: false
+mbtiles:
+  paths:
+    - /tiles

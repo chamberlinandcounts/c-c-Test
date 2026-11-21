@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Report an Issue · Canyon Oaks</title>
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="/vendor/maplibre-gl.css">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<header class="topbar"></header>
+<main class="report">
+  <form id="form" novalidate>
+    <div class="intro">
+      <h1>Canyon Oaks Report an Issue</h1>
+      <p>Tell us what needs attention in the community. Add the location and a photo if you can, and we'll route your report to the right person.</p>
+    </div>
+    <div class="q" data-q="name"><label class="ql" for="name">Name<span class="req">*</span></label>
+      <input type="text" id="name" name="name" autocomplete="name" maxlength="200" required><div class="err">This is a required question</div></div>
+    <div class="q" data-q="street_address"><label class="ql" for="street_address">Street address<span class="req">*</span></label>
+      <input type="text" id="street_address" name="street_address" autocomplete="street-address" maxlength="300" required><div class="err">This is a required question</div></div>
+    <div class="q" data-q="hoa_account_number"><label class="ql" for="hoa_account_number">HOA account number</label>
+      <input type="text" id="hoa_account_number" name="hoa_account_number" maxlength="50"></div>
+    <div class="q" data-q="email"><label class="ql" for="email">Email<span class="req">*</span></label>
+      <input type="email" id="email" name="email" autocomplete="email" maxlength="254" required><div class="err">Please enter a valid email address</div></div>
+    <div class="q" data-q="issue_category"><label class="ql" for="issue_category">Issue category<span class="req">*</span></label>
+      <select id="issue_category" name="issue_category" required><option value="">Select a category…</option></select><div class="err">This is a required question</div></div>
+    <div class="q" data-q="issue_type" id="type-q" hidden><label class="ql" for="issue_type">Issue type</label>
+      <select id="issue_type" name="issue_type"></select></div>
+    <div class="q" data-q="describe_the_issue"><label class="ql" for="describe_the_issue">Describe the issue</label>
+      <textarea id="describe_the_issue" name="describe_the_issue" maxlength="4000"></textarea></div>
+    <div class="q" data-q="location"><label class="ql">Location<span class="req">*</span></label>
+      <div class="locbar"><button type="button" class="btn" id="gps">📍 Use my location</button><span class="muted" id="loc-text">Or tap the map to place a pin.</span></div>
+      <div class="locmap" id="locmap"></div>
+      <div class="err">Please set the location of the issue</div></div>
+    <div class="q" data-q="photos"><label class="ql" for="photos">Photos</label>
+      <input type="file" id="photos" accept="image/*" multiple>
+      <div class="hint">Up to 3 photos.</div><div class="thumbs" id="thumbs"></div><div class="err" id="photo-err"></div></div>
+    <div class="q" data-q="additional_notes"><label class="ql" for="additional_notes">Additional notes</label>
+      <textarea id="additional_notes" name="additional_notes" maxlength="4000"></textarea></div>
+    <div class="submitbar"><button class="btn primary" id="submit" type="submit">Submit</button>
+      <div class="err" id="submit-err" style="text-align:center;margin-top:8px"></div></div>
+    <p class="footer-note">Canyon Oaks · Community data services by Chamberlin &amp; Counts</p>
+  </form>
+  <div class="success card" id="success" hidden>
+    <div style="font-size:42px">✅</div>
+    <h2 style="margin:6px 0 0">Thank you for your report.</h2>
+    <div class="ticket" id="ticket"></div>
+    <p class="muted">Please keep this ticket number for your records. Your report will appear on the community issue tracker.</p>
+    <p><a class="btn" href="/report">Report another issue</a> <a class="btn" href="/issues">View issue tracker</a></p>
+  </div>
+</main>
+<script src="/vendor/maplibre-gl.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/mapcore.js"></script>
+<script>
+const MAX_PHOTOS = 3;
+let OPTIONS, marker = null, loc = null, photos = [];
+const $ = (id) => document.getElementById(id);
+
+function setLoc(lngLat, map, source) {
+  loc = { lon: +lngLat.lng.toFixed(7), lat: +lngLat.lat.toFixed(7) };
+  if (!marker) {
+    marker = new maplibregl.Marker({ color: "#d64545", draggable: true }).setLngLat(lngLat).addTo(map);
+    marker.on("dragend", () => setLoc(marker.getLngLat(), map, "pin"));
+  } else marker.setLngLat(lngLat);
+  $("loc-text").textContent = `${source === "gps" ? "GPS location" : "Pin"}: ${loc.lat.toFixed(5)}, ${loc.lon.toFixed(5)} (drag to adjust)`;
+  document.querySelector('[data-q="location"]').classList.remove("invalid");
+}
+
+async function shrink(file) {
+  // Downscale large JPEG/PNG/WebP photos on the phone before upload; leave others (e.g. HEIC) as-is.
+  if (!/^image\/(jpeg|png|webp)$/.test(file.type) || file.size < 2.5e6) return file;
+  try {
+    const bmp = await createImageBitmap(file);
+    const scale = Math.min(1, 2400 / Math.max(bmp.width, bmp.height));
+    const c = document.createElement("canvas");
+    c.width = Math.round(bmp.width * scale); c.height = Math.round(bmp.height * scale);
+    c.getContext("2d").drawImage(bmp, 0, 0, c.width, c.height);
+    const blob = await new Promise((r) => c.toBlob(r, "image/jpeg", 0.85));
+    return blob ? new File([blob], file.name.replace(/\.\w+$/, "") + ".jpg", { type: "image/jpeg" }) : file;
+  } catch { return file; }
+}
+function drawThumbs() {
+  $("thumbs").innerHTML = photos.map((p, i) => `<div class="t"><img src="${p.url}" alt=""><button type="button" data-rm="${i}" aria-label="Remove photo">×</button></div>`).join("");
+  $("thumbs").querySelectorAll("[data-rm]").forEach((b) => (b.onclick = () => { URL.revokeObjectURL(photos[b.dataset.rm].url); photos.splice(b.dataset.rm, 1); drawThumbs(); }));
+  $("photos").disabled = photos.length >= MAX_PHOTOS;
+}
+
+function validate() {
+  let ok = true;
+  const mark = (q, bad) => { document.querySelector(`[data-q="${q}"]`).classList.toggle("invalid", bad); if (bad) ok = false; };
+  mark("name", !$("name").value.trim());
+  mark("street_address", !$("street_address").value.trim());
+  mark("email", !/^[^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*@([A-Za-z0-9-]+\.)+[A-Za-z]{2,}$/.test($("email").value.trim()));
+  mark("issue_category", !$("issue_category").value);
+  mark("location", !loc);
+  if (!ok) document.querySelector(".q.invalid").scrollIntoView({ behavior: "smooth", block: "center" });
+  return ok;
+}
+
+(async () => {
+  OPTIONS = await CC.api("/api/issues/options");
+  OPTIONS.categories.forEach((c) => $("issue_category").insertAdjacentHTML("beforeend", `<option>${CC.esc(c.category)}</option>`));
+  $("issue_category").onchange = () => {
+    const c = OPTIONS.categories.find((x) => x.category === $("issue_category").value);
+    const types = c ? c.issue_types : [];
+    $("type-q").hidden = !types.length;
+    $("issue_type").innerHTML = `<option value="">Select issue type…</option>` + types.map((t) => `<option>${CC.esc(t)}</option>`).join("");
+    document.querySelector('[data-q="issue_category"]').classList.remove("invalid");
+  };
+  $("photos").onchange = async (e) => {
+    $("photo-err").style.display = "none";
+    for (const f of [...e.target.files]) {
+      if (photos.length >= MAX_PHOTOS) { $("photo-err").textContent = `You can attach up to ${MAX_PHOTOS} photos.`; $("photo-err").style.display = "block"; break; }
+      const s = await shrink(f);
+      if (s.size > 12 * 1024 * 1024) { $("photo-err").textContent = "Each photo must be 12 MB or smaller."; $("photo-err").style.display = "block"; continue; }
+      photos.push({ file: s, url: URL.createObjectURL(s) });
+    }
+    e.target.value = "";
+    drawThumbs();
+  };
+  const m = await CCMap.create("locmap", { layers: false, cooperative: true });
+  const map = m.map;
+  map.on("click", (e) => setLoc(e.lngLat, map, "pin"));
+  $("gps").onclick = () => {
+    if (!navigator.geolocation) return ($("loc-text").textContent = "GPS is not available on this device; tap the map instead.");
+    $("loc-text").textContent = "Finding your location…";
+    navigator.geolocation.getCurrentPosition(
+      (p) => { const ll = new maplibregl.LngLat(p.coords.longitude, p.coords.latitude); setLoc(ll, map, "gps"); map.flyTo({ center: ll, zoom: 18 }); },
+      () => ($("loc-text").textContent = "Couldn't get your location; tap the map to place a pin."),
+      { enableHighAccuracy: true, timeout: 15000 });
+  };
+  $("form").onsubmit = async (e) => {
+    e.preventDefault();
+    $("submit-err").style.display = "none";
+    if (!validate()) return;
+    const fd = new FormData();
+    ["name", "street_address", "hoa_account_number", "email", "issue_category", "issue_type", "describe_the_issue", "additional_notes"].forEach((k) => fd.append(k, $(k).value.trim()));
+    fd.append("lat", loc.lat); fd.append("lon", loc.lon);
+    photos.forEach((p) => fd.append("photos", p.file, p.file.name));
+    $("submit").disabled = true; $("submit").textContent = "Submitting…";
+    try {
+      const r = await CC.api("/api/issues", { method: "POST", body: fd, admin: false });
+      $("form").hidden = true; $("success").hidden = false; $("ticket").textContent = r.ticket;
+      window.scrollTo(0, 0);
+    } catch (err) {
+      $("submit-err").textContent = err.message || "Something went wrong. Please try again.";
+      $("submit-err").style.display = "block";
+      $("submit").disabled = false; $("submit").textContent = "Submit";
+    }
+  };
+})();
+</script>
+</body>
+</html>

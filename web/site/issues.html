@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canyon Oaks Issue Tracker · Chamberlin &amp; Counts</title>
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="/vendor/maplibre-gl.css">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<header class="topbar"></header>
+<main class="dash issues">
+  <section class="card widget filters" style="grid-area:filt">
+    <h3>Filters</h3>
+    <div class="body">
+      <label for="f-cat">Category</label><select id="f-cat"><option value="">All categories</option></select>
+      <label for="f-status">Status</label><select id="f-status"><option value="">All statuses</option></select>
+      <div style="margin-top:18px;border-top:1px solid var(--line);padding-top:12px">
+        <div id="staff-state" class="muted" style="font-size:13px;margin-bottom:8px">Public view: reporter details hidden.</div>
+        <button class="btn small" id="staff-btn">Staff sign-in</button>
+      </div>
+      <div style="margin-top:18px;font-size:12.5px" class="muted">Legend</div>
+      <div id="legend" class="chart-legend" style="margin-top:6px"></div>
+      <p style="margin-top:18px"><a class="btn primary small" href="/report">+ Report an issue</a></p>
+    </div>
+  </section>
+  <div class="card ind" style="grid-area:i1"><div class="lbl">Total tickets</div><div class="val" id="v-total">–</div></div>
+  <div class="card ind" style="grid-area:i2"><div class="lbl">Open (not Closed)</div><div class="val" id="v-open">–</div></div>
+  <div class="card ind" style="grid-area:i3"><div class="lbl">New</div><div class="val" id="v-new">–</div></div>
+  <section class="card widget mapw" style="grid-area:map"><div class="map" id="map"></div></section>
+  <section class="card widget" style="grid-area:bar"><h3>Tickets by category</h3><div class="body" id="bar"></div></section>
+  <section class="card widget" style="grid-area:list"><h3>Tickets <span class="muted" id="list-count"></span></h3><div class="body list" id="list"></div></section>
+</main>
+<script src="/vendor/maplibre-gl.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/charts.js"></script>
+<script src="/js/mapcore.js"></script>
+<script>
+const STATUS_COLORS = { "New": "#e60000", "In Progress": "#ffd700", "Closed": "#00aa00" };
+let ALL = [], OPTIONS = null, M = null, popup = null;
+
+function filtered() {
+  const c = document.getElementById("f-cat").value, s = document.getElementById("f-status").value;
+  return ALL.filter((i) => (!c || i.issue_category === c) && (!s || i.status === s));
+}
+function issuePopup(i) {
+  const photos = (i.photos || []).map((p) => `<img loading="lazy" src="${p.url}" alt="photo" onclick="CC.lightbox(this.src)">`).join("");
+  const priv = i.name !== undefined ? `<tr><td>Name</td><td>${CC.esc(i.name || "")}</td></tr><tr><td>Street address</td><td>${CC.esc(i.street_address || "")}</td></tr>
+     <tr><td>Email</td><td>${CC.esc(i.email || "")}</td></tr><tr><td>HOA account</td><td>${CC.esc(i.hoa_account_number || "")}</td></tr>` : "";
+  return `<div class="pop"><div class="ph">${CC.esc(i.ticket)}<small>Canyon Oaks Issue Reports</small></div><div class="pb">
+    <table><tr><td>Category</td><td>${CC.esc(i.issue_category)}</td></tr><tr><td>Issue type</td><td>${CC.esc(i.issue_type || "")}</td></tr>
+    <tr><td>Assigned to</td><td>${CC.esc(i.assigned_to || "")}</td></tr><tr><td>Status</td><td><span class="pill ${i.status.replace(" ", "")}">${CC.esc(i.status)}</span></td></tr>
+    <tr><td>Description</td><td>${CC.esc(i.describe_the_issue || "")}</td></tr><tr><td>Additional notes</td><td>${CC.esc(i.additional_notes || "")}</td></tr>
+    <tr><td>Submitted</td><td>${CC.fmtDate(i.created_at)}</td></tr>${priv}</table>
+    ${photos ? `<div class="photos">${photos}</div>` : ""}</div></div>`;
+}
+function render() {
+  const rows = filtered();
+  document.getElementById("list-count").textContent = `(${rows.length})`;
+  const counts = {};
+  rows.forEach((i) => (counts[i.issue_category] = (counts[i.issue_category] || 0) + 1));
+  CCCharts.bar(document.getElementById("bar"), Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([label, value]) => ({ label, value })),
+    { onClick: (d) => { document.getElementById("f-cat").value = d.label; render(); } });
+  const admin = !!sessionStorage.getItem("cc_admin_token");
+  const list = document.getElementById("list");
+  list.innerHTML = rows.map((i, n) => `<div class="item" data-n="${n}">
+      <p><strong>${CC.esc(i.ticket)}</strong> · <span class="pill ${i.status.replace(" ", "")}">${CC.esc(i.status)}</span></p>
+      <p>${CC.esc(i.issue_category)}${i.issue_type ? " · " + CC.esc(i.issue_type) : ""}</p>
+      <p class="meta">Assigned: ${CC.esc(i.assigned_to || "")} · ${CC.fmtDate(i.created_at)}</p>
+      ${admin ? `<div class="staff" onclick="event.stopPropagation()">
+        <label>Status<select data-f="status">${OPTIONS.statuses.map((s) => `<option ${s === i.status ? "selected" : ""}>${s}</option>`).join("")}</select></label>
+        <label>Assigned to<input data-f="assigned_to" value="${CC.esc(i.assigned_to || "")}"></label>
+        <label>Staff notes<textarea data-f="notes" rows="2">${CC.esc(i.staff_notes || "")}</textarea></label>
+        <div><button class="btn primary small" data-save="${CC.esc(i.ticket)}">Save</button> <span class="muted" data-msg></span></div></div>` : ""}
+    </div>`).join("") || `<p class="muted">No tickets match the filters.</p>`;
+  list.querySelectorAll(".item").forEach((el) => (el.onclick = () => {
+    const i = rows[el.dataset.n];
+    list.querySelectorAll(".sel").forEach((x) => x.classList.remove("sel"));
+    el.classList.add("sel");
+    M.map.flyTo({ center: [i.lon, i.lat], zoom: 18.5 });
+    popup.setLngLat([i.lon, i.lat]).setHTML(issuePopup(i)).addTo(M.map);
+  }));
+  list.querySelectorAll("[data-save]").forEach((b) => (b.onclick = async () => {
+    const box = b.closest(".staff"), msg = box.querySelector("[data-msg]");
+    const body = {};
+    box.querySelectorAll("[data-f]").forEach((f) => (body[f.dataset.f] = f.value));
+    b.disabled = true; msg.textContent = "Saving…";
+    try {
+      await CC.api(`/api/issues/${encodeURIComponent(b.dataset.save)}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+      msg.textContent = "Saved";
+      await load();
+    } catch (e) {
+      msg.textContent = e.status === 401 ? "Sign-in expired" : "Error: " + e.message;
+      if (e.status === 401) { sessionStorage.removeItem("cc_admin_token"); }
+      b.disabled = false;
+    }
+  }));
+  const src = M.map.getSource("issues");
+  src && src.setData({ type: "FeatureCollection", features: rows.map((i, n) => ({ type: "Feature", id: n, geometry: { type: "Point", coordinates: [i.lon, i.lat] }, properties: { n, status: i.status } })) });
+}
+async function load() {
+  const d = await CC.api("/api/issues?limit=1000");
+  ALL = d.issues;
+  document.getElementById("v-total").textContent = d.counts.total;
+  document.getElementById("v-open").textContent = d.counts.open;
+  document.getElementById("v-new").textContent = d.counts.new;
+  document.getElementById("staff-state").textContent = d.admin ? "Signed in as staff: reporter details and editing enabled." : "Public view: reporter details hidden.";
+  document.getElementById("staff-btn").textContent = d.admin ? "Sign out" : "Staff sign-in";
+  if (!d.admin && sessionStorage.getItem("cc_admin_token")) sessionStorage.removeItem("cc_admin_token");
+  render();
+}
+(async () => {
+  OPTIONS = await CC.api("/api/issues/options");
+  const cat = document.getElementById("f-cat"), st = document.getElementById("f-status");
+  OPTIONS.categories.forEach((c) => cat.insertAdjacentHTML("beforeend", `<option>${CC.esc(c.category)}</option>`));
+  OPTIONS.statuses.forEach((s) => st.insertAdjacentHTML("beforeend", `<option>${s}</option>`));
+  cat.onchange = st.onchange = render;
+  document.getElementById("legend").innerHTML = Object.entries(STATUS_COLORS).map(([k, v]) => `<div><span class="sw" style="background:${v};border-radius:50%"></span>${k}</div>`).join("");
+  document.getElementById("staff-btn").onclick = async () => {
+    if (sessionStorage.getItem("cc_admin_token")) { sessionStorage.removeItem("cc_admin_token"); return load(); }
+    const t = prompt("Staff access token");
+    if (t) { sessionStorage.setItem("cc_admin_token", t.trim()); await load(); if (!document.getElementById("staff-btn").textContent.includes("out")) alert("That token was not accepted."); }
+  };
+  M = await CCMap.create("map", { layers: false });
+  popup = new maplibregl.Popup({ maxWidth: "360px" });
+  M.map.addSource("issues", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
+  M.map.addLayer({ id: "issues", type: "circle", source: "issues", paint: {
+    "circle-radius": 7, "circle-stroke-color": "#fff", "circle-stroke-width": 1.5,
+    "circle-color": ["match", ["get", "status"], ...Object.entries(STATUS_COLORS).flat(), "#969696"] } });
+  M.map.on("click", "issues", (e) => { const i = filtered()[e.features[0].properties.n]; popup.setLngLat([i.lon, i.lat]).setHTML(issuePopup(i)).addTo(M.map); });
+  M.map.on("mouseenter", "issues", () => (M.map.getCanvas().style.cursor = "pointer"));
+  M.map.on("mouseleave", "issues", () => (M.map.getCanvas().style.cursor = ""));
+  await load();
+  if (ALL.length) {
+    const b = new maplibregl.LngLatBounds(CCMap.BOUNDS[0], CCMap.BOUNDS[1]);
+    ALL.forEach((i) => b.extend([i.lon, i.lat]));
+    M.map.fitBounds(b, { padding: 30, duration: 0 });
+  }
+})();
+</script>
+</body>
+</html>

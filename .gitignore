@@ -1,4 +1,14 @@
+# secrets
 .env
+# runtime data, seed data and homeowner photos: never commit
+/data/
+/seed/
+/backups/
+*.dump
+*.mbtiles
+*.pmtiles
+# build output
+api/target/
+screenshots/
+node_modules/
 *.env
-data/
-backups/

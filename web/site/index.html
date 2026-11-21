@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canyon Oaks Community Map · Chamberlin &amp; Counts</title>
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="/vendor/maplibre-gl.css">
+<link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<header class="topbar"></header>
+<div class="mapwrap">
+  <aside class="sidebar" id="sidebar">
+    <div class="search">
+      <input id="q" type="search" placeholder="Search address or APN" autocomplete="off" aria-label="Search address or APN">
+      <div class="results" id="results"></div>
+    </div>
+    <h2>Layers &amp; legend</h2>
+    <div id="legend"><p class="muted" style="margin:0 16px">Loading layers…</p></div>
+    <div class="about">Canyon Oaks community asset map: streets, drainage, sewer, irrigation, signs, hydrants, survey control and parcels.
+      Click any feature for details and photos. Data maintained by Chamberlin &amp; Counts.</div>
+  </aside>
+  <div id="map"><button class="btn sb-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰ Layers</button></div>
+</div>
+<script src="/vendor/maplibre-gl.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/mapcore.js"></script>
+<script>
+(async () => {
+  const m = await CCMap.create("map");
+  window._cc = m;
+  m.buildLegend(document.getElementById("legend"));
+  const parcels = m.layers.find((l) => l.id === "parcels");
+  const q = document.getElementById("q"), out = document.getElementById("results");
+  let timer;
+  q.addEventListener("input", () => {
+    clearTimeout(timer);
+    timer = setTimeout(async () => {
+      if (q.value.trim().length < 2) { out.style.display = "none"; return; }
+      const rows = await CC.api("/api/search?q=" + encodeURIComponent(q.value.trim()));
+      out.innerHTML = rows.length ? rows.map((r, i) => `<div data-i="${i}">${CC.esc(r.address || "(no address)")}<small>APN ${CC.esc(r.apn || "")}</small></div>`).join("")
+        : `<div class="muted">No matching parcels</div>`;
+      out.style.display = "block";
+      out.querySelectorAll("[data-i]").forEach((d) => (d.onclick = () => {
+        const r = rows[d.dataset.i];
+        out.style.display = "none"; q.value = r.address || r.apn;
+        m.map.fitBounds([[r.bbox[0], r.bbox[1]], [r.bbox[2], r.bbox[3]]], { padding: 120, maxZoom: 19 });
+        m.map.once("moveend", () => m.popups.openFeature(parcels, r.fid, [r.lon, r.lat]));
+        document.getElementById("sidebar").classList.remove("open");
+      }));
+    }, 200);
+  });
+  document.addEventListener("click", (e) => { if (!e.target.closest(".search")) out.style.display = "none"; });
+})();
+</script>
+</body>
+</html>

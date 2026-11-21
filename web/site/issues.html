@@ -135,7 +135,7 @@ async function load() {
   if (ALL.length) {
     const b = new maplibregl.LngLatBounds(CCMap.BOUNDS[0], CCMap.BOUNDS[1]);
     ALL.forEach((i) => b.extend([i.lon, i.lat]));
-    M.map.fitBounds(b, { padding: 30, duration: 0 });
+    M.map.fitBounds(b, { padding: 60, duration: 0 });
   }
 })();
 </script>
